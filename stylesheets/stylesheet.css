@@ -270,6 +270,9 @@ a {
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+.home {
+  overflow: hidden;
+}
 .home-box {
   -webkit-user-select: none;
   position: absolute;
@@ -287,6 +290,12 @@ a {
   border-radius: 12px;
   color: #eee;
   font-family: Georgia, serif;
+}
+@media screen and (max-width: 481px) {
+  .home-box {
+    width: 310px;
+    margin-left: -175px;
+  }
 }
 .home-box h2 img {
   width: 68px;
