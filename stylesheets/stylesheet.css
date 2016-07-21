@@ -384,10 +384,7 @@ a {
 .container {
   max-width: 800px;
   _width: 800px;
-  padding-top: 20px;
-  padding-right: 10px;
-  padding-bottom: 20px;
-  padding-left: 40px;
+  padding: 10px 20px 30px 20px; 
   margin: auto;
   word-break: break-all;
   word-wrap: break-word;
