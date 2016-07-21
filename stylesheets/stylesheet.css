@@ -297,6 +297,22 @@ a {
     margin-left: -175px;
   }
 }
+@media screen and (max-width: 361px) {
+  .home-box {
+    width: 300px;
+    margin-left: -150px;
+  }
+  .home-box h3 {
+    margin-bottom: 20px;
+  }
+  .home-box p {
+    line-height: 18px;
+    margin-bottom: 10px;
+  }
+  .home-box h2 img {
+    margin-top: 5px;
+  }
+}
 .home-box h2 img {
   width: 68px;
   height: 68px;
