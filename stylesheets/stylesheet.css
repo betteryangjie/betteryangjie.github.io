@@ -4,7 +4,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-image: url("../images/body_bg.jpg");
+  background-image: url("../images/body-bg.jpg");
   background-repeat: repeat;
   min-height: 600px; 
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
