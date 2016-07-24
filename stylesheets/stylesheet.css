@@ -419,6 +419,17 @@ a {
 }
 .container .category ul li {
   list-style-type: disc;
+  position: relative;
+}
+.container .category ul.arc-list {
+  padding: 0;
+}
+.container .category ul.arc-list li {
+  list-style-type: none;
+}
+.container .category ul li .catePostSize {
+  position: absolute;
+  right: 0;
 }
 .container .category .title {
   border-bottom: 1px dashed #ccc;
