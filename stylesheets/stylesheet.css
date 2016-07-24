@@ -390,7 +390,8 @@ a {
   color: #000;
   text-decoration: none;
 }
-
+.bd {
+}
 .container {
   max-width: 800px;
   _width: 800px;
@@ -400,7 +401,6 @@ a {
   word-wrap: break-word;
   background: rgba(255,255,255,1);
   font-family: Georgia, serif;
-  min-height: 800px;
 }
 .header {
   font-size: 26px;
@@ -507,4 +507,11 @@ a {
   background: linear-gradient(135deg, #2989d8 0%, #207cca 0%, #fbae12 0%, #fccd60 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: quote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', endColorstr='#fccd60',GradientType=1 )"); /* IE6-9 fallback on horizontal gradient */
   transition: all 0.3s;
+}
+#ds-thread {
+  background: #3f3f3f;
+}
+#ds-reset {
+  max-width: 800px;
+  margin: auto;
 }
