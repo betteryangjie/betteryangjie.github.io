@@ -508,3 +508,10 @@ a {
   filter: quote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', endColorstr='#fccd60',GradientType=1 )"); /* IE6-9 fallback on horizontal gradient */
   transition: all 0.3s;
 }
+article .desc {
+  font-size: 12px;
+}
+article .content {
+  font-size: 18px;
+  line-height: 30px;
+}
