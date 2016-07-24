@@ -403,8 +403,8 @@ a {
   font-family: Georgia, serif;
 }
 .container ul,.container ul li {
-  margin: 0;
   padding: 0;
+  list-style: none;
 }
 .container .header {
   font-size: 18px;
@@ -413,6 +413,10 @@ a {
 .container .category {
   border: 1px dashed #ccc;
   padding: 15px;
+}
+.container .category ul {
+  padding: 0 0 0 20px;
+  list-style-type: disc;
 }
 .container .category .title {
   border-bottom: 1px dashed #ccc;
