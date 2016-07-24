@@ -510,8 +510,12 @@ a {
 }
 article .desc {
   font-size: 12px;
+  margin-bottom: 25px;
 }
 article .content {
   font-size: 18px;
   line-height: 30px;
+}
+article .bdsharebuttonbox {
+  margin: 40px 0;
 }
