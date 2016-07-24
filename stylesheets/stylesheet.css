@@ -519,3 +519,8 @@ article .content {
 article .bdsharebuttonbox {
   margin: 40px 0;
 }
+.website-info {
+  max-width: 800px;
+  margin: auto;
+  border-top: 1px solid #999;
+}
