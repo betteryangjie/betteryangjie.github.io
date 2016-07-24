@@ -409,6 +409,7 @@ a {
 .container .header {
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 .container .category {
   border: 1px dashed #ccc;
