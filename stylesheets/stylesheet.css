@@ -416,6 +416,8 @@ a {
 }
 .container .category ul {
   padding: 0 0 0 20px;
+}
+.container .category ul li {
   list-style-type: disc;
 }
 .container .category .title {
