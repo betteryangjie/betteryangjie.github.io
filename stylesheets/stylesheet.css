@@ -515,3 +515,29 @@ a {
   max-width: 800px;
   margin: auto;
 }
+#ds-reset .ds-highlight {
+  color: #777 !important;
+}
+#ds-thread #ds-reset .ds-comment-body p {
+  color: #CCC;
+}
+#ds-thread #ds-reset li.ds-tab a.ds-current {
+  border: none;
+  background-color: none;
+  color: #fff;
+}
+#ds-thread #ds-reset li.ds-tab a {
+  text-shadow: none;
+}
+#ds-reset .ds-like-panel {
+  color: #fff;
+}
+#ds-reset .ds-highlight {
+  color: #fff;
+}
+#ds-thread #ds-reset .ds-sort a.ds-current, #ds-thread #ds-reset .ds-sort a:active {
+  color: #fff;
+}
+#ds-thread #ds-reset .ds-powered-by {
+  display: none;
+}
