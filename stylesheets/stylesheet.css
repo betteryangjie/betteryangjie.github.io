@@ -528,3 +528,7 @@ article .bdsharebuttonbox {
   text-align: right;
   color: #999;
 }
+.content .main {
+  color: #606c71;
+  margin: 0 0 20px 0;
+}
