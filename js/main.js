@@ -169,14 +169,13 @@ var isMobile = {
 
 var operation = {
     init: function() {
+        this.insertWeibo();
         this.wechat();
         this.fontChange();
         this.toTop();
-        this.share();
         this.footerNav();
         this.bind();
         this.tips();
-        this.insertWeibo();
     },
     wechat: function() {
         var isWeiXin = /MicroMessenger/i.test(navigator.userAgent);
