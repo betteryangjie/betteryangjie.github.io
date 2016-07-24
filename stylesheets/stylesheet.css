@@ -402,9 +402,21 @@ a {
   background: rgba(255,255,255,1);
   font-family: Georgia, serif;
 }
-.header {
+.container ul,.container ul li {
+  margin: 0;
+  padding: 0;
+}
+.container .header {
   font-size: 18px;
   font-weight: bold;
+}
+.container .category {
+  border: 1px dashed #ccc;
+  padding: 15px;
+}
+.container .category .title {
+  border-bottom: 1px dashed #ccc;
+  font-size: 22px;
 }
 .aboutme strong.title {
   display: block;
