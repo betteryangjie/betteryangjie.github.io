@@ -508,36 +508,3 @@ a {
   filter: quote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', endColorstr='#fccd60',GradientType=1 )"); /* IE6-9 fallback on horizontal gradient */
   transition: all 0.3s;
 }
-#ds-thread {
-  background: #3f3f3f;
-}
-#ds-reset {
-  max-width: 800px;
-  margin: auto;
-}
-#ds-reset .ds-highlight {
-  color: #777 !important;
-}
-#ds-thread #ds-reset .ds-comment-body p {
-  color: #CCC;
-}
-#ds-thread #ds-reset li.ds-tab a.ds-current {
-  border: none;
-  background-color: none;
-  color: #fff;
-}
-#ds-thread #ds-reset li.ds-tab a {
-  text-shadow: none;
-}
-#ds-reset .ds-like-panel {
-  color: #fff;
-}
-#ds-reset .ds-highlight {
-  color: #fff;
-}
-#ds-thread #ds-reset .ds-sort a.ds-current, #ds-thread #ds-reset .ds-sort a:active {
-  color: #fff;
-}
-#ds-thread #ds-reset .ds-powered-by {
-  display: none;
-}
