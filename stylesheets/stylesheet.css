@@ -414,6 +414,7 @@ a {
 .container .category {
   border: 1px dashed #ccc;
   padding: 15px;
+  margin: 40px 0 0 0;
 }
 .container .category ul {
   padding: 0 0 0 20px;
