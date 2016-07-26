@@ -373,7 +373,7 @@ a {
 .container {
   max-width: 800px;
   _width: 800px;
-  padding: 10px 20px 30px 20px; 
+  padding: 10px 20px 0 20px; 
   margin: auto;
   word-break: break-all;
   word-wrap: break-word;
@@ -381,6 +381,7 @@ a {
   font-family: Georgia, serif;
 }
 .container ul,.container ul li {
+  margin: 0 0 auto 0;
   padding: 0;
   list-style: none;
 }
