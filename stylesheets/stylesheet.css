@@ -394,8 +394,12 @@ a {
   width: 68%;
   float: left;
 }
+.container .blogList .title {
+  font-size: 24px;
+  font-weight: bold;
+}
 .container .category {
-  border: 1px dashed #ccc;
+  border: 1px solid #ccc;
   padding: 15px;
   margin: 0 0 30px 2%;
   width: 30%;
@@ -550,6 +554,7 @@ article .bdsharebuttonbox {
 }
 .content .main {
   color: #606c71;
+  font-size: 12px;
 }
 .content ul li {
   margin: 0 0 20px 0;
