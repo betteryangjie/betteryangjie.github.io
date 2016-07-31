@@ -415,6 +415,7 @@ a {
 .container .category ul li {
   list-style-type: disc;
   position: relative;
+  margin: 0 0 0 0;
 }
 .container .category ul.arc-list {
   padding: 0;
