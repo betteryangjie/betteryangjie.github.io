@@ -2,16 +2,16 @@
 <html>
     <head>
         <title>H5地理位置Demo</title>
-        <script src="http://api.map.baidu.com/api?v=1.3" type="text/javascript">
-        </script>
-        <script type="text/javascript" src="/convertor.js">
-        </script>
+        <link rel="stylesheet" type="text/css" href="/bmap.css"/>
+        <script type="text/javascript" src="/getscript.js"></script>
+        <script type="text/javascript" src="/convertor.js"></script>
     </head>
     <body>
         <div id="map" style="width:600px; height:400px">
         </div>
     </body>
     <script type="text/javascript">
+        window.BMap_loadScriptTime = (new Date).getTime();
         if (window.navigator.geolocation) {
             var options = {
                 enableHighAccuracy: true,
