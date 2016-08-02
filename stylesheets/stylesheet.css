@@ -398,7 +398,7 @@ a {
   font-size: 24px;
   font-weight: bold;
 }
-.container .category {
+.container .category,.container .tag {
   border: 1px solid #ccc;
   padding: 15px;
   margin: 0 0 30px 2%;
@@ -427,9 +427,14 @@ a {
   position: absolute;
   right: 0;
 }
-.container .category .title {
+.container .category .title,.container .tag .title {
   border-bottom: 1px dashed #ccc;
   font-size: 22px;
+}
+.container .tag a {
+    padding: 2px 10px;
+    background: #ccc;
+    border-radius: 10px;
 }
 .aboutme strong.title {
   display: block;
