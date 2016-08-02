@@ -574,7 +574,7 @@ article .bdsharebuttonbox {
     width: 100%;
     float: none;
   }
-  .container .category,.share_self {
+  .container .category,.container .tag,.share_self {
     display: none;
   }
 }
@@ -597,7 +597,7 @@ article .bdsharebuttonbox {
     width: 100%;
     float: none;
   }
-  .container .category,.share_self {
+  .container .category,.container .tag,.share_self {
     display: none;
   }
 }
