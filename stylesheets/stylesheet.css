@@ -433,9 +433,10 @@ a {
   font-size: 22px;
 }
 .container .tag a {
-    padding: 2px 10px;
-    background: #ccc;
-    border-radius: 10px;
+  padding: 2px 10px;
+  background: #ccc;
+  border-radius: 10px;
+  white-space: nowrap;
 }
 .aboutme strong.title {
   display: block;
