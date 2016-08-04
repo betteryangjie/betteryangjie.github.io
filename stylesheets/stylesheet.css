@@ -393,7 +393,7 @@ a {
 .container .blogList {
   width: 68%;
   float: left;
-  min-height: 310px;
+  min-height: 410px;
 }
 .container .blogList .title {
   font-size: 24px;
@@ -405,6 +405,10 @@ a {
   margin: 0 0 30px 2%;
   width: 30%;
   float: left;
+}
+.container .demoList ul li{
+  border: 1px dashed #ccc;
+  padding: 10px 0;
 }
 .share_self {
   width: 30%;
