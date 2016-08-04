@@ -1,0 +1,371 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div {
+                width: 400px;
+                height: 400px;
+                text-align: center;
+                position: relative;
+                color: #fff;
+                font-size: 18px;
+                font-family: Helvetica;
+                margin:0 0 10px 0;
+            }
+            div:nth-child(1) {
+                background: rgba(255,126,76,0.5);
+            }
+            div:nth-child(2) {
+                background: rgba(204,90,72,0.5);
+            }
+            div:nth-child(3) {
+                background: rgba(20,89,204,0.5);
+            }
+            div:nth-child(4) {
+                background: rgba(61,96,153,0.5);
+            }
+            div:nth-child(5) {
+                background: rgba(204,73,151,0.5);
+            }
+            div:nth-child(6) {
+                background: rgba(255,76,94,0.5);
+            }
+            div:nth-child(7) {
+                background: rgba(131,90,204,0.5);
+            }
+            div:nth-child(8) {
+                background: rgba(120,74,255,0.5);
+            }
+            div:nth-child(9) {
+                background: rgba(20,74,255,0.5);
+            }
+            div:nth-child(10) {
+                background: rgba(120,174,255,0.5);
+            }
+            div:nth-child(11) {
+                background: rgba(120,74,155,0.5);
+            }
+            div:nth-child(12) {
+                background: rgba(20,74,155,0.5);
+            }
+            td:nth-child(1) div:nth-child(1) {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                background: rgba(255,220,196,0.5);
+            }
+            td:nth-child(1) div:nth-child(2) {
+                position: fixed;
+                top: 420px;
+                left: 10px;
+                background: rgba(61,153,78,0.5);
+                text-align: left;
+                line-height: 14px;
+            }
+            td:nth-child(1) div:nth-child(2) p:nth-child(2n) {
+                text-indent: 2.4em;
+            }
+            span.c-1 {
+                color: rgba(255,112,171,1);
+            }
+            span.c-2 {
+                color: rgba(0,0,255,1);
+            }
+            td {
+                width: 33%;
+            }
+            img {
+                width: 250px;
+                height: 173px;
+                vertical-align: middle;
+            }
+            section {
+                position: absolute;
+                top: 4px;
+                left: 4px;
+            }
+            strong {
+                color: rgba(255,0,0,1);
+            }
+            div:before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                background: rgba(255,255,255,1);
+                border-radius: 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -5px 0 0 -5px;
+                z-index: 999;
+            }
+            td:nth-child(1) div:nth-child(2):before {
+                content: none;
+            }
+            div:after {
+                content: '';
+                height: 100%;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            td:nth-child(2) div:nth-child(1) img {
+                /* 位移-x translate(tx,ty) matrix(1,0,0,1,tx,ty) */
+                transform: translate(50px,0);
+            }
+            @keyframes kf01 {
+                0% {transform:matrix(1,0,0,1,0,0);}
+                100% {transform:matrix(1,0,0,1,50,0);}
+            }
+            td:nth-child(3) div:nth-child(1) img {
+                /* 位移-x translate(tx,ty) matrix(1,0,0,1,tx,ty) */
+                transform: matrix(1,0,0,1,50,0);
+                animation: kf01 3s;
+            }
+            td:nth-child(2) div:nth-child(2) img {
+                /* 位移-y translate(tx,ty) matrix(1,0,0,1,tx,ty) */
+                transform: translate(0,50px);
+            }
+            @keyframes kf02 {
+                0% {transform:matrix(1,0,0,1,0,0);}
+                100% {transform:matrix(1,0,0,1,0,50);}
+            }
+            td:nth-child(3) div:nth-child(2) img {
+                /* 位移-y translate(tx,ty) matrix(1,0,0,1,tx,ty) */
+                transform: matrix(1,0,0,1,0,50);
+                animation: kf02 3s;
+            }
+
+            td:nth-child(2) div:nth-child(3) img {
+                /* 缩放-x scale(sx,sy)     matrix(sx,0,0,sy,0,0) */
+                transform: scale(1.5,1);
+            }
+            @keyframes kf03 {
+                0% {transform:matrix(1,0,0,1,0,0);}
+                100% {transform:matrix(1.5,0,0,1,0,0);}
+            }
+            td:nth-child(3) div:nth-child(3) img {
+                /* 缩放-x scale(sx,sy)     matrix(sx,0,0,sy,0,0) */
+                transform: matrix(1.5,0,0,1,0,0);
+                animation: kf03 3s;
+            }
+            td:nth-child(2) div:nth-child(4) img {
+                /* 缩放-y scale(sx,sy)     matrix(sx,0,0,sy,0,0) */
+                transform: scale(1,0.5);
+            }
+            @keyframes kf04 {
+                0% {transform:matrix(1,0,0,1,0,0);}
+                100% {transform:matrix(1,0,0,0.5,0,0);}
+            }
+            td:nth-child(3) div:nth-child(4) img {
+                /* 缩放-y scale(sx,sy)     matrix(sx,0,0,sy,0,0) */
+                transform: matrix(1,0,0,0.5,0,0);
+                animation: kf04 3s;
+            }
+
+            td:nth-child(2) div:nth-child(5) img {
+                /* 旋转 rotate(θ)        matrix(cosθ,sinθ,-sinθ,cosθ,0,0) */
+                transform: rotate(10deg);
+            }
+            @keyframes kf05 {
+                0% {transform:matrix(1,0,0,1,0,0);}
+                100% {transform:matrix(0.985,0.174,-0.174,0.985,0,0);}
+            }
+            td:nth-child(3) div:nth-child(5) img {
+                /* 旋转 rotate(θ)        matrix(cosθ,sinθ,-sinθ,cosθ,0,0) */
+                transform: matrix(0.985,0.174,-0.174,0.985,0,0);
+                animation: kf05 3s;
+            }
+            td:nth-child(2) div:nth-child(6) img {
+                /* 旋转 rotate(θ)        matrix(cosθ,sinθ,-sinθ,cosθ,0,0) */
+                transform: rotate(90deg);
+            }
+            @keyframes kf06 {
+                0% {transform:matrix(1,0,0,1,0,0);}
+                100% {transform:matrix(0,1,-1,0,0,0);}
+            }
+            td:nth-child(3) div:nth-child(6) img {
+                /* 旋转 rotate(θ)        matrix(cosθ,sinθ,-sinθ,cosθ,0,0) */
+                transform: matrix(0,1,-1,0,0,0);
+                animation: kf06 3s;
+            }
+
+            td:nth-child(2) div:nth-child(7) img {
+                /* 拉伸-x skew(θx,θy)     matrix(1,tan(θy),tan(θx),1,0,0) */
+                transform: skew(10deg,0);
+            }
+            @keyframes kf07 {
+                0% {transform:matrix(1,0,0,1,0,0);}
+                100% {transform:matrix(1,0,0.176,1,0,0);}
+            }
+            td:nth-child(3) div:nth-child(7) img {
+                /* 拉伸-x skew(θx,θy)     matrix(1,tan(θy),tan(θx),1,0,0) */
+                transform: matrix(1,0,0.176,1,0,0);
+                animation: kf07 3s;
+            }
+            td:nth-child(2) div:nth-child(8) img {
+                /* 拉伸-y skew(θx,θy)     matrix(1,tan(θy),tan(θx),1,0,0) */
+                transform: skew(0,10deg);
+            }
+            @keyframes kf08 {
+                0% {transform:matrix(1,0,0,1,0,0);}
+                100% {transform:matrix(1,0.176,0,1,0,0);}
+            }
+            td:nth-child(3) div:nth-child(8) img {
+                /* 拉伸-y skew(θx,θy)     matrix(1,tan(θy),tan(θx),1,0,0) */
+                transform: matrix(1,0.176,0,1,0,0);
+                animation: kf08 3s;
+            }
+
+            td:nth-child(2) div:nth-child(9) img {
+                /* 缩放-X 旋转 rotate(θ) scale(sx,sy) */
+                transform: rotate(90deg) scale(1.5,1);
+            }
+            @keyframes kf09 {
+                0% {transform:rotate(0deg) scale(1,1);}
+                50% {transform:rotate(0deg) scale(1.5,1);}
+                100% {transform:rotate(90deg) scale(1.5,1);}
+            }
+            td:nth-child(3) div:nth-child(9) img {
+                /* 缩放-X 旋转 rotate(θ) scale(sx,sy) */
+                transform: matrix(0,1.5,-1,0,0,0);
+                animation: kf09 3s;
+            }
+            td:nth-child(2) div:nth-child(10) img {
+                /* 旋转 缩放-X scale(sx,sy) rotate(θ) */
+                transform: scale(1.5,1) rotate(90deg);
+            }
+            @keyframes kf10 {
+                0% {transform:scale(1,1) rotate(0deg);}
+                50% {transform:scale(1,1) rotate(90deg);}
+                100% {transform:scale(1.5,1) rotate(90deg);}
+            }
+            td:nth-child(3) div:nth-child(10) img {
+                /* 旋转 缩放-X scale(sx,sy) rotate(θ) */
+                transform: matrix(0,1,-1.5,0,0,0);
+                animation: kf10 3s;
+            }
+            td:nth-child(3) div:nth-child(11) img {
+                /* y=0为对称轴 matrix(1,0,0,-1,0,0) */
+                transform: matrix(1,0,0,-1,0,0);
+            }
+            td:nth-child(3) div:nth-child(12) img {
+                /* x=0为对称轴 matrix(-1,0,0,1,0,0) */
+                transform: matrix(-1,0,0,1,0,0);
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td valign="top">
+                    <div><img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/></div>
+                    <div>
+                        <p>位移 translate(<span class="c-1">tx</span>,<span class="c-2">ty</span>)</p>
+                        <p>matrix(1,0,0,1,<span class="c-1">tx</span>,<span class="c-2">ty</span>)</p>
+                        <p>缩放 scale(<span class="c-1">sx</span>,<span class="c-2">sy</span>)</p>
+                        <p>matrix(<span class="c-1">sx</span>,0,0,<span class="c-2">sy</span>,0,0)</p>
+                        <p>旋转 rotate(<span class="c-1">θ</span>)</p>
+                        <p>matrix(<span class="c-1">cosθ</span>,<span class="c-1">sinθ</span>,<span class="c-1">-sinθ</span>,<span class="c-1">cosθ</span>,0,0)</p>
+                        <p>拉伸 skew(<span class="c-1">θx</span>,<span class="c-2">θy</span>)</p>
+                        <p>matrix(1,<span class="c-2">tan(θy)</span>,<span class="c-1">tan(θx)</span>,1,0,0)</p>
+                        <p>镜像对称 matrix((1-k*k) / (1+k*k), 2k / (1 + k*k),</p><p> 2k / (1 + k*k), (k*k - 1) / (1+k*k), 0, 0)</p>
+                    </div>
+                </td>
+                <td valign="top">
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>位移-x translate(<strong>50px</strong>,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>位移-y translate(0,<strong>50px</strong>)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>缩放-x scale(<strong>1.5</strong>,1)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>缩放-y scale(1,<strong>0.5</strong>)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>旋转 rotate(<strong>10deg</strong>)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>旋转 rotate(<strong>90deg</strong>)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>拉伸-x skew(<strong>10deg</strong>,0)</section>
+                    </div> 
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>拉伸-y skew(0,<strong>10deg</strong>)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>先缩放-x 再旋转 rotate(<strong>90deg</strong>) scale(<strong>1.5</strong>,1)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>先旋转 再缩放-x scale(<strong>1.5</strong>,1) rotate(<strong>90deg</strong>)</section>
+                    </div>
+                </td>
+                <td valign="top">
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>位移-x matrix(1,0,0,1,<strong>50</strong>,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>位移-y matrix(1,0,0,1,0,<strong>50</strong>)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>缩放-x matrix(<strong>1.5</strong>,0,0,1,0,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>缩放-y matrix(1,0,0,<strong>0.5</strong>,0,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>旋转 matrix(<strong>0.985</strong>,<strong>0.174</strong>,<strong>-0.174</strong>,<strong>0.985</strong>,0,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>旋转 matrix(<strong>0</strong>,<strong>1</strong>,<strong>-1</strong>,<strong>0</strong>,0,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>拉伸-x matrix(1,0,<strong>0.176</strong>,1,0,0)</section>
+                    </div> 
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>拉伸-y matrix(1,<strong>0.176</strong>,0,1,0,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>先缩放-x 再旋转 matrix(<strong>0</strong>,<strong>1</strong>,<strong>-1</strong>,<strong>0</strong>,0,0) matrix(<strong>1.5</strong>,0,0,1,0,0) <br> =matrix(<strong>0</strong>,<strong>1.5</strong>,<strong>-1</strong>,<strong>0</strong>,0,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>先旋转 再缩放-x matrix(<strong>1.5</strong>,0,0,1,0,0) matrix(<strong>0</strong>,<strong>1</strong>,<strong>-1</strong>,<strong>0</strong>,0,0) <br> =matrix(<strong>0</strong>,<strong>1</strong>,<strong>-1.5</strong>,<strong>0</strong>,0,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>y=0为对称轴 matrix(<strong>1</strong>,<strong>0</strong>,<strong>0</strong>,<strong>-1</strong>,0,0)</section>
+                    </div>
+                    <div>
+                        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b8014a90f603738db9c8cf8db31bb051f919ec9b.jpg"/>
+                        <section>x=0为对称轴 matrix(<strong>-1</strong>,<strong>0</strong>,<strong>0</strong>,<strong>1</strong>,0,0)</section>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
