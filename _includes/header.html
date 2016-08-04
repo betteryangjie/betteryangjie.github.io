@@ -1,21 +1,22 @@
 <div class="header">
-    <a href="/" aria-label="回到yangjie首页导航">yangjie</a>
-    <font>» </font><span id="crumb"></span>
+    <a href="/" aria-label="回到yangjie首页导航">yangjie</a><font> » </font><span id="crumb"></span>
 </div>
 <script type="text/javascript">
     var p = window.location.pathname;
     var crumb = document.getElementById("crumb");
     var html = '';
     if(p.indexOf('/blog/postByCategory') == 0) {//文章分类
-    	html = '<a href="/blog/">博客</a><font>» </font><font>文章分类</font>';
+    	html = '<a href="/blog/">博客</a><font> » </font><font>文章分类</font>';
     } else if(p.indexOf('/blog/postByTag') == 0) {//标签
-    	html = '<a href="/blog/">博客</a><font>» </font><font>标签</font>';
+    	html = '<a href="/blog/">博客</a><font> » </font><font>标签</font>';
     } else if(p.indexOf('/blog/') == 0) {//博客
-    	html = '<a href="/blog/">博客</a>';
+    	html = '<font>博客</font>';
     } else if(p.indexOf('/demo/') == 0) {//示例
-    	html = '<a href="/demo/">示例</a>';
+    	html = '<font>示例</font>';
+    } else if(p.indexOf('/about') == 0) {//关于我
+    	html = '<font>关于我</font>';
     } else {//文章详情
-    	html = '<a href="/blog/">博客</a><font>» </font><font>文章详情</font>';
+    	html = '<a href="/blog/">博客</a><font> » </font><font>文章详情</font>';
     }
     crumb.innerHTML = html;
 </script>
