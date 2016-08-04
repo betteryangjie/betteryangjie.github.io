@@ -1,0 +1,54 @@
+---
+layout: default
+title: yangjie的Blog
+---
+<style>
+  .tagName {
+    margin: 0 0 10px 0;
+  }
+  .container .blogList {
+    width: 100%;
+    float: none;
+  }
+</style>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="Jquery.Query.js"></script>
+<div class="tagName"></div>
+<ul class="blogList"></ul>
+<script>
+var dataStr = '{ {% for tag in site.tags %}{% if tag[0] != site.tags.first[0] %},{% endif %}"{{ tag[0] }}":[{% for post in tag[1] %}{% if post != tag[1].first %},{% endif %}{"id":"{{post.id}}","url":"{{post.url}}", "title":"{{post.title}}", "date":"{{post.date | date:"%Y-%m-%d"}}","main":"{{post.content | truncate:80 | uri_escape}}", "more":{% if post.content.size > 80 %}true{% else %}false{% endif %} }{% endfor %}]{% endfor %} }';
+var data = JSON.parse(dataStr);
+var tag = $.query.get("tag");
+$(".tagName").html("标签：" + tag);
+var posts = data[tag];
+for(var i=0;i<posts.length;i++) {
+  var post = posts[i];
+  var title = $("<div class='title' />");
+  var a = $("<a />");
+  a.attr("href","/blog" + post.url);
+  a.html(post.title);
+  title.append(a);
+  var main = $("<div class='main' />");
+  main.html(decodeURI(post.main));
+  if(post.more) {
+    var a = $("<a />");
+    a.attr("href","/blog" + post.url);
+    a.html("阅读更多");
+    main.find("p:first").append(a);
+  }
+  var date = $("<span class='date' />");
+  date.html(post.date);
+  var duoshuo = $("<span/>");
+  var duoshuo_b = $("<b/>");
+  duoshuo_b.attr("class","ds-thread-count disqus-comment-count");
+  duoshuo_b.attr("data-thread-key",post.id);
+  duoshuo_b.attr("data-disqus-identifier",post.id);
+  duoshuo.append(duoshuo_b);
+  var li = $("<li />");
+  li.append(title);
+  li.append(main);
+  li.append(date);
+  li.append(duoshuo);
+  $(".blogList").append(li);
+}
+</script>

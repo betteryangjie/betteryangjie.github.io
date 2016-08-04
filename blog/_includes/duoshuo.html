@@ -1,0 +1,52 @@
+<!-- 多说评论框 start -->
+<div class="ds-thread"
+     data-thread-key={{ page.id }}
+     data-title={{ page.title }}
+     data-url="{{ site.baseurl }}/blog{{ page.url }}">
+ </div>
+<!-- 多说评论框 end -->
+<div class="footer">
+    <div class="website-info" aria-hidden="true">
+        Made By <a href="/about.html" aria-label="回到yangjie首页导航">yangjie</a>
+    </div>
+</div>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yangjie-info"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+<style>
+/*多说评论框的样式-begin*/
+#ds-thread {
+    padding: 10px 0 40px 0;
+}
+#ds-reset {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+}
+#ds-thread #ds-reset .ds-powered-by {
+    display: none;
+}
+#ds-reset .ds-avatar img {
+    border-radius: 50px;
+}
+#ds-reset .ds-avatar {
+    box-shadow: none;
+    border-radius: 50px;
+    border: 2px solid #fff;
+}
+.ds-thread-count.disqus-comment-count {
+    font-size: 12px;
+    color: #999;
+}
+/*多说评论框的样式-end*/
+</style>

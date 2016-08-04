@@ -1,0 +1,6 @@
+<div class="tag">
+    <div class="title">标签</div>
+    {% for tag in site.tags %}
+        <a href="{{ site.baseurl }}/blog/postByTag.html?tag={{ tag[0] }}"> {{ tag[0] }}</a>
+    {% endfor %}
+</div>

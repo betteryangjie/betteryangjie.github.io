@@ -1,0 +1,24 @@
+---
+layout: default
+title: yangjie的Blog
+---
+<div class="">
+    <ul>
+    {% for category in site.categories %}
+        <li>
+            <h2>
+                <span class="cateName">{{ category | first }}</span>
+                <span class="catePostSize">({{ category | last | size }})</span>
+            </h2>
+            <ul class="arc-list">
+                {% for post in category.last %}
+                    <li>
+                        <span class="date">{{ post.date | date:"%Y-%m-%d"}}</span>
+                        <a href="{{ site.baseurl }}/blog{{ post.url }}">{{ post.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}    
+    </ul>
+</div>
