@@ -1,5 +1,5 @@
 paginate: 4
-paginate_path: "page:num"
+paginate_path: "blog/page:num"
 markdown: rdiscount
 pygments: true
 permalink: /:year:month:day/:title
