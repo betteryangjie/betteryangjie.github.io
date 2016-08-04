@@ -406,9 +406,9 @@ a {
   width: 30%;
   float: left;
 }
-.container .demoList ul li{
+.container ul.demoList li{
   border: 1px dashed #ccc;
-  padding: 10px 0;
+  padding: 10px;
 }
 .share_self {
   width: 30%;

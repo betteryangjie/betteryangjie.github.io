@@ -16,11 +16,7 @@
     <div class="bd">
         <div class="container">
             <article>
-                <div class="header">
-                    <a href="/" aria-label="回到yangjie首页导航">yangjie</a>
-                    <font aria-hidden="true">» <a href="/blog/" aria-label="回到yangjie博客">博客</a></font>
-                    <font aria-hidden="true">» 文章
-                </div>
+                {% include header.html %}
                 <h1>{{ page.title }}</h1>
                 <div class="desc">作者:<a href="/about">yangjie</a> {{ page.date | date: "%Y-%m-%d" }}</div>
                 <div class="content">{{ content }}</div>
