@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        div {
+            text-align: center;
+            font-size: 36px;
+            margin: auto auto 100px auto;
+        }
+        .ellipsisOneLine {
+            width: 180px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            -webkit-text-overflow: ellipsis;
+            -moz-text-overflow: ellipsis;
+        }
+        .ellipsisMultiLine {
+            width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            /*
+            支持版本\类型   IE    Firefox   Safari   Chrome   Opera
+            桌面            no    no        yes      yes      yes(webkit)
+            移动端          no    no        yes      yes      ?
+            */
+        }
+    </style>
+</head>
+<body>
+    <div>如何实现文字溢出隐藏并显示省略号？</div>
+    <div class="ellipsisOneLine" title="好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！">
+        好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！
+    </div>
+    <div class="ellipsisMultiLine" title="好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！">
+        好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！好好学习，天天向上！
+    </div>
+</body>
+</html>
