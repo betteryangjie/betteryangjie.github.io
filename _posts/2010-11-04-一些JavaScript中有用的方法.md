@@ -45,13 +45,13 @@ var obj = $.secureEvalJSON(str);
 ### 2.1 对字符串进行URI编码
 
 ```JavaScript
-encodeURI("http://yangjie.info/blog/20101104/一些JavaScript中有用的方法")
+encodeURI("http://yangjie.info/20101104/一些JavaScript中有用的方法")
 ```
 
 ### 2.2 对字符串进行URI解码
 
 ```JavaScript
-decodeURI("http://yangjie.info/blog/20101104/%E4%B8%80%E4%BA%9BJavaScript%E4%B8%AD%E6%9C%89%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95")
+decodeURI("http://yangjie.info/20101104/%E4%B8%80%E4%BA%9BJavaScript%E4%B8%AD%E6%9C%89%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95")
 ```
 
 ## 3.判断输入法状态

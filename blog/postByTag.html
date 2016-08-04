@@ -25,14 +25,14 @@ for(var i=0;i<posts.length;i++) {
   var post = posts[i];
   var title = $("<div class='title' />");
   var a = $("<a />");
-  a.attr("href","/blog" + post.url);
+  a.attr("href", post.url);
   a.html(post.title);
   title.append(a);
   var main = $("<div class='main' />");
   main.html(decodeURI(post.main));
   if(post.more) {
     var a = $("<a />");
-    a.attr("href","/blog" + post.url);
+    a.attr("href", post.url);
     a.html("阅读更多");
     main.find("p:first").append(a);
   }

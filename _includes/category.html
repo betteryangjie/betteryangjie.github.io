@@ -3,7 +3,7 @@
     <ul>
     {% for category in site.categories %}
         <li>
-            <a href="{{ site.baseurl }}/blog/postByCategory.html?cat={{ category | first }}">
+            <a href="{{ site.baseurl }}/blog/postByCategory?cat={{ category | first }}">
                 <span class="cateName">{{ category | first }}</span>
                 <span class="catePostSize">{{ category | last | size }}</span>
             </a>

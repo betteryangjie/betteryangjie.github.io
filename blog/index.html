@@ -6,12 +6,12 @@ title: yangjie的Blog
     {% for post in paginator.posts %}
     <li>
         <div class="title">
-            <a href="{{ site.baseurl }}/blog{{ post.url }}">{{ post.title }}</a>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
         </div>
         <div class="main">
             {{ post.content | truncate:80 }}
             {% if post.content.size > 80 %}
-                <a href="{{ site.baseurl }}/blog{{ post.url }}">阅读更多</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">阅读更多</a>
             {% endif %}    
         </div>
         <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
