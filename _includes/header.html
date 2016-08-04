@@ -1,7 +1,19 @@
 <div class="header">
     <a href="/" aria-label="回到yangjie首页导航">yangjie</a>
-    <font>»</font><a href="/blog/">博客</a><font>/</font><a href="/demo/">示例</a>
+    <font>» </font><span id="crumb"></span>
 </div>
 <script type="text/javascript">
-
+    var p = window.location.pathname;
+    var crumb = document.getElementById("crumb");
+    if(p.indexOf('/blog/postByCategory') == 0) {//文章分类
+    	crumb.html('<a href="/blog/">博客</a><font>» </font><font>文章分类</font>');
+    } else if(p.indexOf('/blog/postByTag') == 0) {//标签
+    	crumb.html('<a href="/blog/">博客</a><font>» </font><font>标签</font>');
+    } else if(p.indexOf('/blog/') == 0) {//博客
+    	crumb.html('<a href="/blog/">博客</a>');
+    } else if(p.indexOf('/demo/') == 0) {//示例
+    	crumb.html('<a href="/demo/">示例</a>');
+    } else {//文章详情
+    	crumb.html('<a href="/blog/">博客</a><font>» </font><font>文章详情</font>');
+    }
 </script>
