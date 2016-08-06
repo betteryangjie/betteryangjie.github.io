@@ -218,17 +218,17 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.6.2 修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件，在如下内容后添加新的8443端口配置：
 
-<pre>
+```
 <!--
     <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
                maxThreads="150" scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS" />
 -->
-</pre>
+```
 
 新的8443端口配置：
 
-<pre>
+```
 <Connector port="8443"
            protocol="org.apache.coyote.http11.Http11Protocol"
            SSLImplementation="edu.internet2.middleware.security.tomcat6.DelegateToApplicationJSSEImplementation"
@@ -237,7 +237,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
            clientAuth="true"
            keystoreFile="/opt/shibboleth-idp/credentials/idp.jks"
            keystorePass="123456" />
-</pre>
+```
 
 #### 2.6.3 重启tomcat
 
@@ -256,7 +256,19 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 #### 2.7.1 修改apache配置文件
 
 如果系统有独立Apache，443端口已经被占用了。则需要修改/etc/httpd/conf.d/ssl.conf文件，将端口443修改为其他端口（此处修改为1443端口）。
-需要修改两处: “Listen 443”修改为“Listen 1443”，<pre>“ <VirtualHost _default_:443>”</pre>修改为<pre>“<VirtualHost _default_:1443>”</pre>。
+需要修改两处: 
+
+“Listen 443”修改为“Listen 1443”
+
+```
+<VirtualHost _default_:443>
+```
+
+修改为
+
+```
+<VirtualHost _default_:1443>
+```
 
 #### 2.7.2 重启Apache
 
@@ -277,23 +289,23 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件，在如下内容后添加443端口配置：
 
-<pre>
+```
 <!--
     <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
                maxThreads="150" scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS" />
 -->
-</pre>
+```
 
 443端口配置：
 
-<pre>
+```
 <Connector protocol="org.apache.coyote.http11.Http11Protocol"
            port="443" maxThreads="200"
            scheme="https" secure="true" SSLEnabled="true"
            keystoreFile="${user.home}/.keystore" keystorePass="123456"
            clientAuth="false" sslProtocol="TLS"/>
-</pre>
+```
 
 #### 2.7.5 重启tomcat
 
@@ -352,7 +364,7 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 
 修改/usr/local/apache-tomcat-6.0.18/webapps/idp/WEB-INF/web.xml文件，增加如下代码：
 
-<pre>
+```
 <!-- For CAS client support -->
 <context-param>
   <param-name>serverName</param-name>
@@ -409,11 +421,11 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
 		<url-pattern>/Authn/RemoteUser</url-pattern>
 	</filter-mapping>
-</pre>
+```
 
 下面这段代码是Define Shib RemoteUser Servlet，web.xml中已经存在。
 
-<pre>
+```
 <!-- Servlet protected by container user for RemoteUser authentication -->
 <servlet>
   <servlet-name>RemoteUserAuthHandler</servlet-name>
@@ -424,7 +436,7 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
   <servlet-name>RemoteUserAuthHandler</servlet-name>
   <url-pattern>/Authn/RemoteUser</url-pattern>
 </servlet-mapping>
-</pre>
+```
 
 ### 4.4 重启tomcat
 
