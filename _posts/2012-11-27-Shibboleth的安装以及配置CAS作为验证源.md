@@ -218,7 +218,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.6.2 修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件，在如下内容后添加新的8443端口配置：
 
-{% highlight ruby %}
+{% highlight xml %}
 <!--
     <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
                maxThreads="150" scheme="https" secure="true"
@@ -289,7 +289,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件，在如下内容后添加443端口配置：
 
-{% highlight ruby %}
+{% highlight xml %}
 <!--
     <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
                maxThreads="150" scheme="https" secure="true"
@@ -364,13 +364,12 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 
 修改/usr/local/apache-tomcat-6.0.18/webapps/idp/WEB-INF/web.xml文件，增加如下代码：
 
-{% highlight ruby %}
+{% highlight xml %}
 <!-- For CAS client support -->
 <context-param>
   <param-name>serverName</param-name>
   <param-value>idp.example.org</param-value>
 </context-param>
-
 <!-- CAS client filters -->
 	<filter>
 		<filter-name>CAS Authentication Filter</filter-name>
@@ -384,12 +383,10 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 			</param-value>
 		</init-param>
 	</filter>
-
 	<filter-mapping>
 		<filter-name>CAS Authentication Filter</filter-name>
 		<url-pattern>/Authn/RemoteUser</url-pattern>
 	</filter-mapping>
-
 	<filter>
 		<filter-name>CAS Validation Filter</filter-name>
 		<filter-class>
@@ -404,19 +401,16 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
-
 	<filter-mapping>
 		<filter-name>CAS Validation Filter</filter-name>
 		<url-pattern>/Authn/RemoteUser</url-pattern>
 	</filter-mapping>
-
 	<filter>
 		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
 		<filter-class>
 			org.jasig.cas.client.util.HttpServletRequestWrapperFilter
 		</filter-class>
 	</filter>
-
 	<filter-mapping>
 		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
 		<url-pattern>/Authn/RemoteUser</url-pattern>
@@ -425,13 +419,12 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 
 下面这段代码是Define Shib RemoteUser Servlet，web.xml中已经存在。
 
-{% highlight ruby %}
+{% highlight xml %}
 <!-- Servlet protected by container user for RemoteUser authentication -->
 <servlet>
   <servlet-name>RemoteUserAuthHandler</servlet-name>
   <servlet-class>edu.internet2.middleware.shibboleth.idp.authn.provider.RemoteUserAuthServlet</servlet-class>
 </servlet>
- 
 <servlet-mapping>
   <servlet-name>RemoteUserAuthHandler</servlet-name>
   <url-pattern>/Authn/RemoteUser</url-pattern>
