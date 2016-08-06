@@ -20,15 +20,15 @@ Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web�
 
 将
 
-<pre>
+```
 <param- value>file://$IDP_HOME$/conf/internal.xml; file://$IDP_HOME$/conf/service.xml;</param-value>
-</pre>
+```
 
 改为
 
-<pre>
+```
 <param- value>file:///$IDP_HOME$/conf/internal.xml ; file:///$IDP_HOME$/conf/service.xml ;</param-value>
-</pre>
+```
 
 若不修改，第二步启动tomcat时会报错 (IOException parsing XML document from URL)
 
