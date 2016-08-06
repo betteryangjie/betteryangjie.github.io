@@ -241,11 +241,11 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.6.3 重启tomcat
 
-```Bash
+{% highlight bash %}
 [root@idp ~]# cd /usr/local/apache-tomcat-6.0.18/bin
 [root@idp ~]# ./shutdown.sh
 [root@idp ~]# ./startup.sh
-```
+{% endhighlight %}
 
 #### 2.6.4 测试
 
