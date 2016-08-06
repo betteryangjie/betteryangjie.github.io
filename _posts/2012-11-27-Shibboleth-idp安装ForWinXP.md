@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Shibboleth2-IDP安装ForWinXP
+title: Shibboleth-idp安装ForWinXP
 categories: [门户系统]
 tags: [Shibboleth,SSO]
 ---
-Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web资源共享与访问控制，以及校园间的应用系统的用户身份联合认证。2006年 12月，由北京大学执行的CARSI项目即是在国内高校之间部署Shibboleth，隶属于国家863计划，目前已经有清华大学、北京邮电大学、中国电 子科技大学、华南理工大学等陆续加入，建立了CARSI-Fed（也称为CERNET-Fed），其目标是最终实现中国教育科研网内跨机构用户统一身份认 证、共享资源访问授权和审计系统。更多的详细信息可以参考：http://carsi.edu.cn/。本文讲解WinXP系统上Shibboleth2-IDP的安装过程。
+Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web资源共享与访问控制，以及校园间的应用系统的用户身份联合认证。2006年 12月，由北京大学执行的CARSI项目即是在国内高校之间部署Shibboleth，隶属于国家863计划，目前已经有清华大学、北京邮电大学、中国电 子科技大学、华南理工大学等陆续加入，建立了CARSI-Fed（也称为CERNET-Fed），其目标是最终实现中国教育科研网内跨机构用户统一身份认 证、共享资源访问授权和审计系统。更多的详细信息可以参考：http://carsi.edu.cn/。本文讲解WinXP系统上Shibboleth-idp的安装过程。
 
 ## 1.环境准备
 
@@ -19,9 +19,16 @@ Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web�
 ### 2.1 修改resources\WEB-INF\web.xml
 
 将
+
+<pre>
 <param- value>file://$IDP_HOME$/conf/internal.xml; file://$IDP_HOME$/conf/service.xml;</param-value>
+</pre>
+
 改为
+
+<pre>
 <param- value>file:///$IDP_HOME$/conf/internal.xml ; file:///$IDP_HOME$/conf/service.xml ;</param-value>
+</pre>
 
 若不修改，第二步启动tomcat时会报错 (IOException parsing XML document from URL)
 
@@ -46,6 +53,8 @@ security.provider.10=edu.internet2.middleware.shibboleth.DelegateToApplicationPr
 ## 2.7 修改TOMCAT_HOME\conf\server.xml
 
 将下列定义加入
+
+<pre>
 <Connector protocol="org.apache.coyote.http11.Http11Protocol"
            port="8443"
            maxHttpHeaderSize="8192"
@@ -60,6 +69,7 @@ security.provider.10=edu.internet2.middleware.shibboleth.DelegateToApplicationPr
            truststoreFile="IDP_HOME/credentials/idp.jks"
            truststorePass="PASSWORD"
            truststoreAlgorithm="DelegateToApplication"/>
+</pre>
 
 如果是tomcat5.5则删除protocol="org.apache.coyote.http11.Http11Protocol"，将IDP_HOME改为IDP的目录，PASSWORD是安装IDP时keystore的密码
 
