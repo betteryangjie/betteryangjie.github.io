@@ -63,7 +63,4 @@ document.addEventListener("compositionstart", function(){
 document.addEventListener("compositionend", function(){
     window.IMEStatus=2;//英文输入状态
 });
-if(window.IMEStatus == 1) {//中文输入状态
-} else {//英文输入状态
-}
 ```
