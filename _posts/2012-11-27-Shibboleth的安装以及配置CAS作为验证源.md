@@ -228,7 +228,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 新的8443端口配置：
 
-```
+{% highlight xml %}
 <Connector port="8443"
            protocol="org.apache.coyote.http11.Http11Protocol"
            SSLImplementation="edu.internet2.middleware.security.tomcat6.DelegateToApplicationJSSEImplementation"
@@ -237,7 +237,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
            clientAuth="true"
            keystoreFile="/opt/shibboleth-idp/credentials/idp.jks"
            keystorePass="123456" />
-```
+{% endhighlight %}
 
 #### 2.6.3 重启tomcat
 
@@ -260,15 +260,15 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 “Listen 443”修改为“Listen 1443”
 
-```
+{% highlight xml %}
 <VirtualHost _default_:443>
-```
+{% endhighlight %}
 
 修改为
 
-```
+{% highlight xml %}
 <VirtualHost _default_:1443>
-```
+{% endhighlight %}
 
 #### 2.7.2 重启Apache
 
@@ -299,13 +299,13 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 443端口配置：
 
-```
+{% highlight xml %}
 <Connector protocol="org.apache.coyote.http11.Http11Protocol"
            port="443" maxThreads="200"
            scheme="https" secure="true" SSLEnabled="true"
            keystoreFile="${user.home}/.keystore" keystorePass="123456"
            clientAuth="false" sslProtocol="TLS"/>
-```
+{% endhighlight %}
 
 #### 2.7.5 重启tomcat
 
