@@ -8,21 +8,34 @@ Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web�
 
 本文介绍CAS安装、Shibboleth-idp（linux版本）安装、Shibboleth-sp安装以及配置CAS为Shibboleth-idp（linux版本）的验证源。在下面将按照步骤先后顺序进行介绍。
 在安装之前，让我们来了解下需要准备些什么。包括安装文件、机器、域名等。
+
 1、需要有三个独立的域名。比如本文中CAS的域名是yj.zju.edu.cn，Shibboleth-idp的域名是idp.example.org, Shibboleth-sp的域名是sp.example.org。
+
 2、本文中，实际需要三台机器。其中CAS安装在windows-xp系统。Shibboleth-idp和Shibboleth-sp分别装在linux系统上。
+
 3、在三台机器的系统都已装好的情况下，需要准备如下安装文件：
+
 CAS：
+
 Apache Tomcat（本文采用apache-tomcat-6.0.18）、
+
 JDK（本文采用jdk-6u10-rc2-bin-b32-windows-i586-p-12_sep_2008.exe）、
+
 cas-server（本文采用cas-server-3.4.2.1-release.zip）。
 
 Shibboleth-idp：
+
 Apache Tomcat（本文采用apache-tomcat-6.0.18）、
+
 JDK（本文采用jdk-6u14-linux-i586-rpm.bin）、
+
 shibboleth-identityprovider（shibboleth-identityprovider-2.1.5-bin.zip）、
+
 cas-client（cas-client-3.1.10-release.tar.gz）。
 
 Shibboleth-sp：
+
+省略...
 
 >备注：如果需要使用Shibboleth-sp来测试，则Shibboleth-sp和Shibboleth-idp的两台机器时间要相同。
 
@@ -30,7 +43,7 @@ Shibboleth-sp：
 
 ### 1.1 系统信息
 
-系统：
+```Dos
 Microsoft Window XP
 Professional
 版本 2002
@@ -41,6 +54,7 @@ Pentium(R) Dual-Core CPU
 E5200 @ 2.50GHz
 2.52 GHz,1.99GB的内存
 物理地址扩展
+```
 
 ## 2.Shibboleth-idp安装
 
@@ -204,12 +218,17 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.6.2 修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件，在如下内容后添加新的8443端口配置：
 
+<pre>
 <!--
     <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
                maxThreads="150" scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS" />
 -->
+</pre>
+
 新的8443端口配置：
+
+<pre>
 <Connector port="8443"
            protocol="org.apache.coyote.http11.Http11Protocol"
            SSLImplementation="edu.internet2.middleware.security.tomcat6.DelegateToApplicationJSSEImplementation"
@@ -218,6 +237,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
            clientAuth="true"
            keystoreFile="/opt/shibboleth-idp/credentials/idp.jks"
            keystorePass="123456" />
+</pre>
 
 #### 2.6.3 重启tomcat
 
@@ -236,7 +256,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 #### 2.7.1 修改apache配置文件
 
 如果系统有独立Apache，443端口已经被占用了。则需要修改/etc/httpd/conf.d/ssl.conf文件，将端口443修改为其他端口（此处修改为1443端口）。
-需要修改两处: “Listen 443”修改为“Listen 1443”，“ <VirtualHost _default_:443>”修改为“<VirtualHost _default_:1443>”。
+需要修改两处: “Listen 443”修改为“Listen 1443”，<pre>“ <VirtualHost _default_:443>”</pre>修改为<pre>“<VirtualHost _default_:1443>”</pre>。
 
 #### 2.7.2 重启Apache
 
@@ -256,17 +276,24 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 #### 2.7.4 修改tomcat配置文件
 
 修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件，在如下内容后添加443端口配置：
+
+<pre>
 <!--
     <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
                maxThreads="150" scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS" />
 -->
+</pre>
+
 443端口配置：
+
+<pre>
 <Connector protocol="org.apache.coyote.http11.Http11Protocol"
            port="443" maxThreads="200"
            scheme="https" secure="true" SSLEnabled="true"
            keystoreFile="${user.home}/.keystore" keystorePass="123456"
            clientAuth="false" sslProtocol="TLS"/>
+</pre>
 
 #### 2.7.5 重启tomcat
 
@@ -325,7 +352,7 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 
 修改/usr/local/apache-tomcat-6.0.18/webapps/idp/WEB-INF/web.xml文件，增加如下代码：
 
-```Xml
+<pre>
 <!-- For CAS client support -->
 <context-param>
   <param-name>serverName</param-name>
@@ -382,11 +409,11 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
 		<url-pattern>/Authn/RemoteUser</url-pattern>
 	</filter-mapping>
-```
+</pre>
 
 下面这段代码是Define Shib RemoteUser Servlet，web.xml中已经存在。
 
-```Xml
+<pre>
 <!-- Servlet protected by container user for RemoteUser authentication -->
 <servlet>
   <servlet-name>RemoteUserAuthHandler</servlet-name>
@@ -397,7 +424,7 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
   <servlet-name>RemoteUserAuthHandler</servlet-name>
   <url-pattern>/Authn/RemoteUser</url-pattern>
 </servlet-mapping>
-```
+</pre>
 
 ### 4.4 重启tomcat
 
