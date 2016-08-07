@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shibboleth-idp安装ForWinXP
+title: Shibboleth-idp(WinXP)的安装
 categories: [门户系统]
 tags: [Shibboleth,SSO]
 ---
@@ -32,15 +32,15 @@ Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web�
 
 若不修改，第二步启动tomcat时会报错 (IOException parsing XML document from URL)
 
-## 2.2 运行IDP_HOME\ant.bat
+### 2.2 运行IDP_HOME\ant.bat
 
-## 2.3 将IDP中的endorsed目录复制到tomcat主目录
+### 2.3 将IDP中的endorsed目录复制到tomcat主目录
 
-## 2.4 在环境变量中加入JAVA_OPTS=-Xmx512m -XX:MaxPermSize=256m
+### 2.4 在环境变量中加入JAVA_OPTS=-Xmx512m -XX:MaxPermSize=256m
 
-## 2.5 将shib-jce-1.0.jar复制到JAVA_HOME/jre/lib/ext
+### 2.5 将shib-jce-1.0.jar复制到JAVA_HOME/jre/lib/ext
 
-## 2.6 修改JAVA_HOME\jre\lib\security\java.security文件
+### 2.6 修改JAVA_HOME\jre\lib\security\java.security文件
 
 将
 
@@ -48,13 +48,13 @@ security.provider.#=edu.internet2.middleware.shibboleth.DelegateToApplicationPro
 
 加入security.provider最后一行(#是顺序的数字)，示例：
 
-<pre>
+{% highlight xml %}
 security.provider.8=sun.security.smartcardio.SunPCSC
 security.provider.9=sun.security.mscapi.SunMSCAPI
 security.provider.10=edu.internet2.middleware.shibboleth.DelegateToApplicationProvider
-</pre>
+{% endhighlight %}
  
-## 2.7 修改TOMCAT_HOME\conf\server.xml
+### 2.7 修改TOMCAT_HOME\conf\server.xml
 
 增加如下内容
 
@@ -77,7 +77,7 @@ security.provider.10=edu.internet2.middleware.shibboleth.DelegateToApplicationPr
 
 如果是tomcat5.5则删除protocol="org.apache.coyote.http11.Http11Protocol"，将IDP_HOME改为IDP的目录，PASSWORD是安装IDP时keystore的密码
 
-## 2.8 将idp.war复制到TOMCAT_HOME\webapps下
+### 2.8 将idp.war复制到TOMCAT_HOME\webapps下
 
 ## 3.测试
 

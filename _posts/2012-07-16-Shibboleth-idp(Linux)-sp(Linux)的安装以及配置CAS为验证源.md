@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Shibboleth的安装以及配置CAS作为验证源
+title: Shibboleth-idp(Linux)-sp(Linux)的安装以及配置CAS为验证源
 categories: [门户系统]
 tags: [Shibboleth,SSO]
 ---
 Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web资源共享与访问控制，以及校园间的应用系统的用户身份联合认证。2006年 12月，由北京大学执行的CARSI项目即是在国内高校之间部署Shibboleth，隶属于国家863计划，目前已经有清华大学、北京邮电大学、中国电 子科技大学、华南理工大学等陆续加入，建立了CARSI-Fed（也称为CERNET-Fed），其目标是最终实现中国教育科研网内跨机构用户统一身份认 证、共享资源访问授权和审计系统。更多的详细信息可以参考：http://carsi.edu.cn/。
 
-本文介绍CAS安装、Shibboleth-idp（linux版本）安装、Shibboleth-sp安装以及配置CAS为Shibboleth-idp（linux版本）的验证源。在下面将按照步骤先后顺序进行介绍。
+本文介绍CAS安装、Shibboleth-idp(Linux)安装、Shibboleth-sp(Linux)安装以及配置CAS为Shibboleth-idp的验证源。在下面将按照步骤先后顺序进行介绍。
 
 在安装之前，让我们来了解下需要准备些什么。包括安装文件、机器、域名等。
 
@@ -477,23 +477,23 @@ Starting shibd:                                            [  OK  ]
 
 #### 3.7.1 在sp.example.org机器上做修改
 
-##### (1)将idp的metadata文件idp-metadata.xml放到/etc/shibboleth文件夹下
+(1)将idp的metadata文件idp-metadata.xml放到/etc/shibboleth文件夹下
 
-##### (2)修改shibboleth2.xml，修改<ApplicationDefaults标签里的元素entityID的值
+(2)修改shibboleth2.xml，修改<ApplicationDefaults标签里的元素entityID的值
 
-##### (3)修改shibboleth2.xml，修改<SessionInitiator标签里的元素entityID的值
+(3)修改shibboleth2.xml，修改<SessionInitiator标签里的元素entityID的值
 
-##### (4)修改shibboleth2.xml，将<MetadataProvider的注释去掉，并修改file的值为idp的metadata文件idp-metadata.xml所在路径
+(4)修改shibboleth2.xml，将<MetadataProvider的注释去掉，并修改file的值为idp的metadata文件idp-metadata.xml所在路径
 
-##### (5)重启服务
+(5)重启服务
 
 #### 3.7.2 在idp.example.org机器上做修改
 
-##### (1)在浏览器输入https://sp.example.org/Shibboleth.sso/Metadata，将得到一个名为Metadata的文件，这个即是sp的metadata文件
+(1)在浏览器输入https://sp.example.org/Shibboleth.sso/Metadata，将得到一个名为Metadata的文件，这个即是sp的metadata文件
 
-##### (2)将上一步得到的文件放到/opt/shibboleth-idp/metadata文件夹下，并重命名为metadata-sp.xml
+(2)将上一步得到的文件放到/opt/shibboleth-idp/metadata文件夹下，并重命名为metadata-sp.xml
 
-##### (3)修改/opt/shibboleth-idp/conf/relying-party.xml文件，在<metadata:MetadataProvider标签里面增加如下内容(注意id要唯一)
+(3)修改/opt/shibboleth-idp/conf/relying-party.xml文件，在<metadata:MetadataProvider标签里面增加如下内容(注意id要唯一)
 
 {% highlight xml %}
 <MetadataProvider id="SPMD2" xsi:type="ResourceBackedMetadataProvider" xmlns="urn:mace:shibboleth:2.0:metadata" >
@@ -501,7 +501,7 @@ Starting shibd:                                            [  OK  ]
 </MetadataProvider>
 {% endhighlight %}
 
-##### (4)重启服务
+(4)重启服务
 
 #### 3.7.3 测试
 
@@ -541,7 +541,7 @@ connection Keep-Alive
 
 #### 3.11.1 修改/etc/httpd/conf/httpd.conf文件
 
-##### (1)
+(1)
 
 {% highlight xml %}
 #<IfModule mod_proxy.c>
@@ -555,7 +555,7 @@ connection Keep-Alive
 ProxyRequests Off
 {% endhighlight %}
 
-##### (2)
+(2)
 
 {% highlight xml %}
 #<Proxy *>
@@ -575,7 +575,7 @@ ProxyRequests Off
 </Proxy>
 {% endhighlight %}
 
-##### (3)在上一步修改内容之后添加如下内容
+(3)在上一步修改内容之后添加如下内容
 
 <pre>
 ProxyPass /test/ http://sp.example.com:8080/
@@ -650,11 +650,11 @@ cpappend.bat  doc  endorsed  install.bat  install.sh  lib  LICENSE.txt  src
 
 #### 3.14.1 修改文件opt\shibboleth-ds\conf\wayfconfig.xml
 
-##### (1)修改<Default标签里面的属性warnOnBadBinding和showUnusableIdPs，均将其值设为true
+(1)修改<Default标签里面的属性warnOnBadBinding和showUnusableIdPs，均将其值设为true
 
-##### (2)修改<MetadataProvider标签里面属性url的值为：file:///opt/shibboleth-ds/metadata/my-federation.xml
+(2)修改<MetadataProvider标签里面属性url的值为：file:///opt/shibboleth-ds/metadata/my-federation.xml
 
-##### (3)在标签</DiscoveryServiceHandler>之前增加如下内容：
+(3)在标签</DiscoveryServiceHandler>之前增加如下内容：
 
 {% highlight xml %}
 <Federation identifier="FirstSite"/>
@@ -680,14 +680,14 @@ discovery  discovery.war  docs  examples  host-manager  manager  ROOT
 
 #### 3.15.1 修改文件\etc\shibboleth\shibboleth2.xml
 
-##### (1)注释掉如下内容
+(1)注释掉如下内容
 
 {% highlight xml %}
 <SessionInitiator type="Chaining" Location="/Login"
 <SessionInitiator type="Chaining" Location="/WAYF"
 {% endhighlight %}
 
-##### (2)
+(2)
 
 {% highlight xml %}
 <SessionInitiator type="Chaining" Location="/DS" id="DS" relayState="cookie">
