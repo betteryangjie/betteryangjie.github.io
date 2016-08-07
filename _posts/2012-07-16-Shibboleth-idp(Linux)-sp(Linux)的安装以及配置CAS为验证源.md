@@ -507,11 +507,11 @@ Starting shibd:                                            [  OK  ]
 
 在浏览器输入https://sp.example.org/secure，如果能显示如下内容，则表示以上配置正确。
 
-<pre>
+{% highlight xml %}
 Not Found
 The requested URL /secure was not found on this server.
 Apache/2.2.3 (Red Hat) Server at sp.example.org Port 443
-</pre>
+{% endhighlight %}
 
 ### 3.8 linux下JDK安装
 
@@ -527,7 +527,7 @@ Apache/2.2.3 (Red Hat) Server at sp.example.org Port 443
 
 在浏览器输入http://sp.example.org:8080/headers.jsp，如果能显示如下内容，则表示放置成功。
 
-<pre>
+{% highlight xml %}
 HTTP Request Headers Received
 accept image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, application/x-silverlight, */*
 accept-language zh-cn
@@ -535,7 +535,7 @@ accept-encoding gzip, deflate
 user-agent Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; CIBA; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)
 host sp.example.org:8080
 connection Keep-Alive
-</pre>
+{% endhighlight %}
 
 ### 3.11 apache反向代理配置
 
@@ -543,21 +543,21 @@ connection Keep-Alive
 
 (1)
 
-{% highlight xml %}
+{% highlight ruby %}
 #<IfModule mod_proxy.c>
 #ProxyRequests On
 {% endhighlight %}
 
 修改为
 
-{% highlight xml %}
+{% highlight ruby %}
 <IfModule mod_proxy.c>
 ProxyRequests Off
 {% endhighlight %}
 
 (2)
 
-{% highlight xml %}
+{% highlight ruby %}
 #<Proxy *>
 #    Order deny,allow
 #    Deny from all
@@ -567,7 +567,7 @@ ProxyRequests Off
 
 修改为
 
-{% highlight xml %}
+{% highlight ruby %}
 <Proxy *>
     Order deny,allow
 #    Deny from all
@@ -577,10 +577,10 @@ ProxyRequests Off
 
 (3)在上一步修改内容之后添加如下内容
 
-<pre>
+{% highlight xml %}
 ProxyPass /test/ http://sp.example.com:8080/
 ProxyPassReverse /test/ http://sp.example.com:8080/
-</pre>
+{% endhighlight %}
 
 其中/test/表示相关应用部署路径，http://sp.example.com:8080/表示真实的url
 
@@ -594,7 +594,7 @@ ProxyPassReverse /test/ http://sp.example.com:8080/
 
 在浏览器输入http://sp.example.org/test/headers.jsp，如果能显示如下内容，则表示配置成功。
 
-<pre>
+{% highlight xml %}
 HTTP Request Headers Received
 host sp.example.org:8080
 accept */*
@@ -606,7 +606,7 @@ x-forwarded-for 10.22.22.23
 x-forwarded-host sp.example.org
 x-forwarded-server sp.example.com
 connection Keep-Alive
-</pre>
+{% endhighlight %}
 
 ### 3.12 在sp中增加属性
 
