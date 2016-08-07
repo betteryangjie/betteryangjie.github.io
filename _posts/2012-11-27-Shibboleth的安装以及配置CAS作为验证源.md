@@ -9,7 +9,7 @@ Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web�
 本文介绍CAS安装、Shibboleth-idp（linux版本）安装、Shibboleth-sp安装以及配置CAS为Shibboleth-idp（linux版本）的验证源。在下面将按照步骤先后顺序进行介绍。
 在安装之前，让我们来了解下需要准备些什么。包括安装文件、机器、域名等。
 
-1、需要有三个独立的域名。比如本文中CAS的域名是yj.zju.edu.cn，Shibboleth-idp的域名是idp.example.org, Shibboleth-sp的域名是sp.example.org。
+1、需要有三个独立的域名。比如本文中CAS的域名是yangjie.info，Shibboleth-idp的域名是idp.example.org, Shibboleth-sp的域名是sp.example.org。
 
 2、本文中，实际需要三台机器。其中CAS安装在windows-xp系统。Shibboleth-idp和Shibboleth-sp分别装在linux系统上。
 
@@ -115,7 +115,7 @@ PATH=$JAVA_HOME/bin:$PATH
 export JAVA_HOME CLASSPATH PATH
 ```
 
-同时按抓shift和冒号键，再按w和q，保存退出。
+同时按住shift和冒号键，再按w和q，保存退出。
 
 ```Bash
 [root@idp ~]# source /etc/profile
@@ -123,7 +123,7 @@ export JAVA_HOME CLASSPATH PATH
 
 上面一行代码将使环境变量生效，这样的设置将对所有用户的shell都生效。
 
-下面来验证一下变量设置是否生效：
+下面来验证一下变量设置是否生效
 
 ```Bash
 [root@idp ~]# java -version
@@ -162,7 +162,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.4.6 测试
 
-在浏览器输入网址：http://idp.example.org:8080,如果能显示tomcat页面，即表示tomcat已经正常运行。
+在浏览器输入http://idp.example.org:8080，如果能显示tomcat页面，则表示tomcat已经正常运行。
 
 ### 2.5 shibboleth-idp安装
 
@@ -210,13 +210,15 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.5.7 测试
 
-在浏览器输入地址http://ssoldap.zju.edu.cn:8080/idp/profile/Status，如果显示ok则表示shibboleth-idp安装成功。
+在浏览器输入http://ssoldap.zju.edu.cn:8080/idp/profile/Status，如果能显示ok，则表示shibboleth-idp安装成功。
 
 ### 2.6 HTTPS验证配置（8443端口）
 
-#### 2.6.1 将tomcat6-dta-ssl-1.0.0.jar文件放置到/usr/local/apache-tomcat-6.0.18/lib目录下。
+#### 2.6.1 将tomcat6-dta-ssl-1.0.0.jar文件放置到/usr/local/apache-tomcat-6.0.18/lib目录下
 
-#### 2.6.2 修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件，在如下内容后添加新的8443端口配置：
+#### 2.6.2 修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件
+
+在如下内容后
 
 {% highlight xml %}
 <!--
@@ -226,7 +228,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 -->
 {% endhighlight %}
 
-新的8443端口配置：
+添加8443端口配置
 
 {% highlight xml %}
 <Connector port="8443"
@@ -249,14 +251,13 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.6.4 测试
 
-在浏览器输入地址https://ssoldap.zju.edu.cn:8443/idp/profile/Status，如果显示ok则表示8443端口配置成功。
+在浏览器输入https://ssoldap.zju.edu.cn:8443/idp/profile/Status，如果能显示ok，则表示8443端口配置成功。
 
 ### 2.7 HTTPS验证配置（443端口）
 
 #### 2.7.1 修改apache配置文件
 
 如果系统有独立Apache，443端口已经被占用了。则需要修改/etc/httpd/conf.d/ssl.conf文件，将端口443修改为其他端口（此处修改为1443端口）。
-需要修改两处: 
 
 “Listen 443”修改为“Listen 1443”
 
@@ -282,12 +283,11 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 [root@idp ~]# $JAVA_HOME/bin/keytool -genkey -alias shibbolethidp -keyalg RSA
 ```
 
-接着输入相关信息。
-注意：名字与姓氏要输入主机名或域名或localhost，不能随意输入。
+接着输入相关信息。注意：名字与姓氏要输入主机名或域名或localhost，不能随意输入。
 
-#### 2.7.4 修改tomcat配置文件
+#### 2.7.4 修改tomcat配置文件/usr/local/apache-tomcat-6.0.18/conf/server.xml
 
-修改/usr/local/apache-tomcat-6.0.18/conf/server.xml文件，在如下内容后添加443端口配置：
+在如下内容后
 
 {% highlight xml %}
 <!--
@@ -297,7 +297,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 -->
 {% endhighlight %}
 
-443端口配置：
+添加443端口配置
 
 {% highlight xml %}
 <Connector protocol="org.apache.coyote.http11.Http11Protocol"
@@ -317,14 +317,14 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.7.6 测试
 
-在浏览器输入地址https://ssoldap.zju.edu.cn:443/idp/profile/Status，如果显示ok则表示443端口配置成功。
+在浏览器输入https://ssoldap.zju.edu.cn:443/idp/profile/Status，如果能显示ok，则表示443端口配置成功。
 
 ## 3.Shibboleth-sp安装
 
 ### 3.1 系统信息
 
 ```Bash
-[root@test1 shibboleth]# lsb_release -a
+[root@localhost ~]# lsb_release -a
 LSB Version:    :core-3.1-ia32:core-3.1-noarch:graphics-3.1-ia32:graphics-3.1-noarch
 Distributor ID: RedHatEnterpriseServer
 Description:    Red Hat Enterprise Linux Server release 5.2 (Tikanga)
@@ -334,35 +334,434 @@ Codename:       Tikanga
 
 ### 3.2 域名设置
 
-### 3.3 linux下JDK安装
+```Bash
+[root@localhost ~]# hostname 
+localhost.localdomain
+[root@localhost ~]# hostname sp.example.org
+[root@localhost ~]# hostname
+sp.example.org
+[root@localhost ~]# vi /etc/hosts
+# Do not remove the following line, or various programs
+# that require network functionality will fail.
+::1     localhost.localdomain   localhost       sp
+127.0.0.1     sp.example.org    sp  localhost.localdomain    localhost
+```
+
+### 3.3 关闭防火墙
 
 ```Bash
-[root@test1 shibboleth]# java -version
-java version "1.4.2"
-gij (GNU libgcj) version 4.1.2 20071124 (Red Hat 4.1.2-42)
-Copyright (C) 2006 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+[root@test1 shibboleth]# /etc/rc.d/init.d/iptables stop
 ```
+
+### 3.4 httpd安装
+
+#### 3.4.1 安装
+
+```Bash
+[root@localhost software]# rpm -ivh apr-1.2.7-11.i386.rpm
+warning: apr-1.2.7-11.i386.rpm: Header V3 DSA signature: NOKEY, key ID 1e5e0159
+Preparing...                ########################################### [100%]
+   1:apr                    ########################################### [100%]
+[root@localhost software]# rpm -ivh postgresql-libs-8.1.11-1.el5_1.1.i386.rpm
+warning: postgresql-libs-8.1.11-1.el5_1.1.i386.rpm: Header V3 DSA signature: NOKEY, key ID 1e5e0159
+Preparing...                ########################################### [100%]
+   1:postgresql-libs        ########################################### [100%]
+[root@localhost software]# rpm -ivh apr-util-1.2.7-7.el5.i386.rpm
+warning: apr-util-1.2.7-7.el5.i386.rpm: Header V3 DSA signature: NOKEY, key ID 1e5e0159
+Preparing...                ########################################### [100%]
+   1:apr-util               ########################################### [100%]
+[root@localhost software]# rpm -ivh httpd-2.2.3-11.el5_1.3.i386.rpm
+warning: httpd-2.2.3-11.el5_1.3.i386.rpm: Header V3 DSA signature: NOKEY, key ID 37017186
+Preparing...                ########################################### [100%]
+   1:httpd                  ########################################### [100%]
+[root@localhost software]# service httpd start
+Starting httpd:                                            [  OK  ]
+```
+
+#### 3.4.2 测试
+
+在浏览器输入http://sp.example.org，如果能显示redhat的欢迎页面，则表示安装成功。
+
+### 3.5 ssl安装
+
+#### 3.5.1 安装
+
+```Bash
+[root@localhost software]# rpm -ivh distcache-1.4.5-14.1.i386.rpm
+warning: distcache-1.4.5-14.1.i386.rpm: Header V3 DSA signature: NOKEY, key ID 37017186
+Preparing...                ########################################### [100%]
+   1:distcache              ########################################### [100%]
+[root@localhost software]# rpm -ivh mod_ssl-2.2.3-11.el5_1.3.i386.rpm
+warning: mod_ssl-2.2.3-11.el5_1.3.i386.rpm: Header V3 DSA signature: NOKEY, key ID 37017186
+Preparing...                ########################################### [100%]
+   1:mod_ssl                ########################################### [100%]
+[root@localhost software]# rpm -ivh openssl097a-0.9.7a-9.el5_2.1.i386.rpm 
+warning: openssl097a-0.9.7a-9.el5_2.1.i386.rpm: Header V3 DSA signature: NOKEY, key ID e8562897
+Preparing...                ########################################### [100%]
+   1:openssl097a            ########################################### [100%]
+[root@localhost software]# service httpd restart
+Stopping httpd:                                            [  OK  ]
+Starting httpd:                                            [  OK  ]
+```
+
+#### 3.5.2 测试
+
+在浏览器输入https://sp.example.org，如果能显示redhat的欢迎页面，则表示安装成功。
+
+### 3.6 sp安装
+
+#### 3.6.1 安装
+
+```Bash
+[root@localhost sp]# ls
+libunixODBC2-2.2.6-7sls.i586.rpm  xerces-c-3.0.1-6.2.i386.rpm
+log4shib-1.0.4-1.2.i386.rpm       xml-security-c-1.5.1-4.2.i386.rpm
+opensaml-2.3-1.8.i386.rpm         xmltooling-1.3.3-1.2.i386.rpm
+shibboleth-2.3.1-1.3.i386.rpm
+[root@localhost sp]# rpm -ivh log4shib-1.0.4-1.2.i386.rpm
+warning: log4shib-1.0.4-1.2.i386.rpm: Header V3 DSA signature: NOKEY, key ID 7d0a1b3d
+Preparing...                ########################################### [100%]
+   1:log4shib               ########################################### [100%]
+[root@localhost sp]# rpm -ivh xerces-c-3.0.1-6.2.i386.rpm
+warning: xerces-c-3.0.1-6.2.i386.rpm: Header V3 DSA signature: NOKEY, key ID 7d0a1b3d
+Preparing...                ########################################### [100%]
+   1:xerces-c               ########################################### [100%]
+[root@localhost sp]# rpm -ivh xml-security-c-1.5.1-4.2.i386.rpm
+warning: xml-security-c-1.5.1-4.2.i386.rpm: Header V3 DSA signature: NOKEY, key ID 7d0a1b3d
+Preparing...                ########################################### [100%]
+   1:xml-security-c         ########################################### [100%]
+[root@localhost sp]# rpm -ivh xmltooling-1.3.3-1.2.i386.rpm
+warning: xmltooling-1.3.3-1.2.i386.rpm: Header V3 DSA signature: NOKEY, key ID 7d0a1b3d
+Preparing...                ########################################### [100%]
+   1:xmltooling             ########################################### [100%]
+[root@localhost sp]# rpm -ivh opensaml-2.3-1.8.i386.rpm
+warning: opensaml-2.3-1.8.i386.rpm: Header V3 DSA signature: NOKEY, key ID 7d0a1b3d
+Preparing...                ########################################### [100%]
+   1:opensaml               ########################################### [100%]
+[root@localhost sp]# rpm -ivh libunixODBC2-2.2.6-7sls.i586.rpm
+warning: libunixODBC2-2.2.6-7sls.i586.rpm: Header V3 DSA signature: NOKEY, key ID 67f22696
+Preparing...                ########################################### [100%]
+   1:libunixODBC2           ########################################### [100%]
+[root@localhost sp]# rpm -ivh shibboleth-2.3.1-1.3.i386.rpm
+warning: shibboleth-2.3.1-1.3.i386.rpm: Header V3 DSA signature: NOKEY, key ID 7d0a1b3d
+Preparing...                ########################################### [100%]
+   1:shibboleth             ########################################### [100%]
+[root@localhost sp]# find / -name 'httpd.conf'
+/etc/httpd/conf/httpd.conf
+[root@localhost sp]# vi /etc/httpd/conf/httpd.conf
+# Edit httpd.conf:
+    * The UseCanonicalName directive should be set to On or resource mapping errors will result.
+    * Ensure that the ServerName directive is properly set, and that Apache is being started with SSL enabled.
+[root@localhost sp]# /usr/sbin/apachectl restart
+[root@localhost sp]# /sbin/service shibd start
+Starting shibd:                                            [  OK  ]
+```
+
+#### 3.6.2 测试
+
+在sp.example.org机器上打开浏览器输入https://localhost/Shibboleth.sso/Status，如果能显示出如下内容，则表示安装成功。
+
+{% highlight xml %}
+<StatusHandler>
+<Version Xerces-C="3.0.1" XML-Security-C="1.5.1" OpenSAML-C="2.3.0" Shibboleth="2.3.1"/>
+<SessionCache>
+<OK/>
+</SessionCache>
+<Application id="default" entityID="https://sp.example.org/shibboleth"/>
+<Handlers>
+...
+{% endhighlight %}
+
+### 3.7 sp configure with idp
+
+#### 3.7.1 在sp.example.org机器上做修改
+
+##### (1)将idp的metadata文件idp-metadata.xml放到/etc/shibboleth文件夹下
+
+##### (2)修改shibboleth2.xml，修改<ApplicationDefaults标签里的元素entityID的值
+
+##### (3)修改shibboleth2.xml，修改<SessionInitiator标签里的元素entityID的值
+
+##### (4)修改shibboleth2.xml，将<MetadataProvider的注释去掉，并修改file的值为idp的metadata文件idp-metadata.xml所在路径
+
+##### (5)重启服务
+
+#### 3.7.2 在idp.example.org机器上做修改
+
+##### (1)在浏览器输入https://sp.example.org/Shibboleth.sso/Metadata，将得到一个名为Metadata的文件，这个即是sp的metadata文件
+
+##### (2)将上一步得到的文件放到/shibboleth-idp/metadata文件夹下，并重命名为metadata-sp.xml
+
+##### (3)修改/shibboleth-idp/conf/relying-party.xml文件，在<metadata:MetadataProvider标签里面增加如下内容(注意id要唯一)
+
+{% highlight xml %}
+<MetadataProvider id="SPMD2" xsi:type="ResourceBackedMetadataProvider" xmlns="urn:mace:shibboleth:2.0:metadata" >
+    <MetadataResource xsi:type="resource:FilesystemResource" file="/shibboleth-idp/metadata/metadata-sp.xml" />
+</MetadataProvider>
+{% endhighlight %}
+
+##### (4)重启服务
+
+#### 3.7.3 测试
+
+在浏览器输入https://sp.example.org/secure，如果能显示如下内容，则表示以上配置正确。
+
+<pre>
+Not Found
+The requested URL /secure was not found on this server.
+Apache/2.2.3 (Red Hat) Server at sp.example.org Port 443
+</pre>
+
+### 3.8 linux下JDK安装
+
+### 3.9 linux下tomcat安装
+
+### 3.10 在tomcat中增加测试页面
+
+#### 3.10.1 放置
+
+将headers.jsp文件放置到tomcat的webapps文件夹下的ROOT文件夹中(即/home/web/apache-tomcat-6.0.18/webapps/ROOT)
+
+#### 3.10.2 测试
+
+在浏览器输入http://sp.example.org:8080/headers.jsp，如果能显示如下内容，则表示放置成功。
+
+<pre>
+HTTP Request Headers Received
+accept image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, application/x-silverlight, */*
+accept-language zh-cn
+accept-encoding gzip, deflate
+user-agent Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; CIBA; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)
+host sp.example.org:8080
+connection Keep-Alive
+</pre>
+
+### 3.11 apache反向代理配置
+
+#### 3.11.1 修改/etc/httpd/conf/httpd.conf文件
+
+##### (1)
+
+{% highlight xml %}
+#<IfModule mod_proxy.c>
+#ProxyRequests On
+{% endhighlight %}
+
+修改为
+
+{% highlight xml %}
+<IfModule mod_proxy.c>
+ProxyRequests Off
+{% endhighlight %}
+
+##### (2)
+
+{% highlight xml %}
+#<Proxy *>
+#    Order deny,allow
+#    Deny from all
+#    Allow from .example.com
+#</Proxy>
+{% endhighlight %}
+
+修改为
+
+{% highlight xml %}
+<Proxy *>
+    Order deny,allow
+#    Deny from all
+    Allow from all
+</Proxy>
+{% endhighlight %}
+
+##### (3)在上一步修改内容之后添加如下内容
+
+<pre>
+ProxyPass /test/ http://sp.example.com:8080/
+ProxyPassReverse /test/ http://sp.example.com:8080/
+</pre>
+
+其中/test/表示相关应用部署路径，http://sp.example.com:8080/表示真实的url
+
+#### 3.11.2 重启httpd服务
+
+```Bash
+[root@sp bin]# service httpd restart
+```
+
+#### 3.11.3 测试
+
+在浏览器输入http://sp.example.org/test/headers.jsp，如果能显示如下内容，则表示配置成功。
+
+<pre>
+HTTP Request Headers Received
+host sp.example.org:8080
+accept */*
+accept-language zh-cn
+accept-encoding gzip, deflate
+user-agent Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; CIBA; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)
+max-forwards 10
+x-forwarded-for 10.22.22.23
+x-forwarded-host sp.example.org
+x-forwarded-server sp.example.com
+connection Keep-Alive
+</pre>
+
+### 3.12 在sp中增加属性
+
+#### 3.12.1 修改etc\shibboleth\attribute-map.xml文件
+
+在<Attributes标签里增加如下内容
+
+{% highlight xml %}
+<Attribute name="uid" id="uid">
+    <AttributeDecoder xsi:type="StringAttributeDecoder"/>
+</Attribute>
+{% endhighlight %}
+
+#### 3.12.2 shibd服务重启
+
+### 3.13 安装ds
+
+```Bash
+[root@sp 12-ds-install]# ls
+shibboleth-discovery-service-1.1.1-bin.tar.gz
+[root@sp 12-ds-install]# gunzip shibboleth-discovery-service-1.1.1-bin.tar.gz
+[root@sp 12-ds-install]# ls
+shibboleth-discovery-service-1.1.1-bin.tar
+[root@sp 12-ds-install]# tar -xvf shibboleth-discovery-service-1.1.1-bin.tar
+[root@sp 12-ds-install]# ls
+shibboleth-discovery-service-1.1.1  shibboleth-discovery-service-1.1.1-bin.tar
+[root@sp 12-ds-install]# cd shibboleth-discovery-service-1.1.1
+[root@sp shibboleth-discovery-service-1.1.1]# ls
+cpappend.bat  doc  endorsed  install.bat  install.sh  lib  LICENSE.txt  src
+[root@sp shibboleth-discovery-service-1.1.1]# cp -rf endorsed/ /home/web/apache-tomcat-6.0.18/
+[root@sp shibboleth-discovery-service-1.1.1]# ls /home/web/apache-tomcat-6.0.18/
+bin  conf  endorsed  lib  LICENSE  logs  NOTICE  RELEASE-NOTES  RUNNING.txt  temp  webapps  work
+[root@sp shibboleth-discovery-service-1.1.1]# pwd
+/home/software/12-ds-install/shibboleth-discovery-service-1.1.1
+[root@sp shibboleth-discovery-service-1.1.1]# ls
+cpappend.bat  doc  endorsed  install.bat  install.sh  lib  LICENSE.txt  src
+[root@sp shibboleth-discovery-service-1.1.1]# ./install.sh
+```
+
+### 3.14 配置ds
+
+#### 3.14.1 修改文件opt\shibboleth-ds\conf\wayfconfig.xml
+
+##### (1)修改<Default标签里面的属性warnOnBadBinding和showUnusableIdPs，均将其值设为true
+
+##### (2)修改<MetadataProvider标签里面属性url的值为：file:///opt/shibboleth-ds/metadata/my-federation.xml
+
+##### (3)在标签</DiscoveryServiceHandler>之前增加如下内容：
+
+{% highlight xml %}
+<Federation identifier="FirstSite"/>
+{% endhighlight %}
+
+#### 3.14.2 部署文件/opt/shibboleth-ds/war/discovery.war到tomcat
+
+```Bash
+[root@sp conf]# cp /opt/shibboleth-ds/war/discovery.war /home/web/apache-tomcat-6.0.18/webapps/
+[root@sp conf]# ls /home/web/apache-tomcat-6.0.18/webapps/
+discovery  discovery.war  docs  examples  host-manager  manager  ROOT
+```
+
+在浏览器输入http://sp.example.org:8080/discovery/wayferror.jsp，如果能显示如下内容，则表示部署成功。
+
+"The DiscoveryService should not be called directly"
+
+#### 3.14.3 将idp和sp的metadata内容放置到my-federation-begin.xml文件中，并重命名为my-federation.xml
+
+#### 3.14.4 将my-federation.xml文件放到/opt/shibboleth-ds/metadata文件夹下
+
+### 3.15 sp configure with ds
+
+#### 3.15.1 修改文件\etc\shibboleth\shibboleth2.xml
+
+##### (1)注释掉如下内容
+
+{% highlight xml %}
+<SessionInitiator type="Chaining" Location="/Login"
+<SessionInitiator type="Chaining" Location="/WAYF"
+{% endhighlight %}
+
+##### (2)
+
+{% highlight xml %}
+<SessionInitiator type="Chaining" Location="/DS" id="DS" relayState="cookie">
+    <SessionInitiator type="SAML2" acsIndex="1" template="bindingTemplate.html"/>
+    <SessionInitiator type="Shib1" acsIndex="5"/>
+    <SessionInitiator type="SAMLDS" URL="https://ds.example.org/DS/WAYF"/>
+</SessionInitiator>
+{% endhighlight %}
+
+修改为
+
+{% highlight xml %}
+<SessionInitiator type="Chaining" Location="/DS" id="DS" relayState="cookie">
+    <SessionInitiator type="SAML2" acsIndex="1" template="bindingTemplate.html"/>
+    <SessionInitiator type="Shib1" acsIndex="5"/>
+    <SessionInitiator type="SAMLDS" URL="http://sp.example.org:8080/discovery/WAYF"/>
+</SessionInitiator>
+{% endhighlight %}
+
+#### 3.15.2 重启shibd服务
+
+#### 3.15.3 测试
+
+在浏览器输入https://sp.example.org/secure，如果能跳转到ds的选择页面"Select an identity provider"，并且选择idp后，能成功到达idp的登录页面，登陆后能返回sp，则表示以上配置成功。
+
+### 3.16 配置shibd到apache的反向代理
+
+修改etc\httpd\conf.d\shib.conf文件，在末尾增加如下代码
+
+{% highlight xml %}
+<Location /test>
+  AuthType shibboleth
+  ShibRequestSetting requireSession 1
+  require valid-user
+  ShibUseHeaders On
+</Location>
+{% endhighlight %}
+
+### 3.17 sp常见错误及解决方法
+
+#### 3.17.1 错误提示:Message expired, was issued too long ago
+
+解决方法：修改sp与idp其中一台机器的时间，保持一致。
+
+#### 3.17.2 错误提示:Message did not meet security requirements
+
+解决方法：修改sp与idp其中一台机器的时间，保持一致。
+
+#### 3.17.3 错误提示:No peer endpoint available to which to send SAML response
+
+原因分析：产生这个错误的原因是配置到idp中的sp的metadata文件有问题。我是因为获取metadata文件时，路径输入错误，误把https://sp.example.org/Shibboleth.sso/Metadata输为http://sp.example.org/Shibboleth.sso/Metadata
+
+解决方法：重新用获取正确的sp的metadata文件，并放置到idp的metadata文件夹下,并重新启动idp。
 
 ## 4.配置CAS为Shibboleth-idp的验证源
 
-### 4.1
+### 4.1 拷贝
 
-拷贝casclient包（cas-client-3.1.10）中的两个jar包（cas-client-core-3.1.10.jar、commons-logging-1.1.jar）到/usr/local/apache-tomcat-6.0.18/webapps/idp/WEB-INF/lib目录中。
+拷贝casclient（cas-client-3.1.10）中的两个jar包（cas-client-core-3.1.10.jar、commons-logging-1.1.jar）到/usr/local/apache-tomcat-6.0.18/webapps/idp/WEB-INF/lib目录中。
 
-### 4.2
+### 4.2 修改/opt/shibboleth-idp/conf/handler.xml文件
 
-修改/opt/shibboleth-idp/conf/handler.xml文件，定义如下验证方法作为CAS的验证方法：
+定义如下验证方法作为CAS的验证方法
+
+{% highlight xml %}
 <LoginHandler xsi:type="RemoteUser">
-        <AuthenticationMethod>
-urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
-</AuthenticationMethod>
+    <AuthenticationMethod>
+        urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
+    </AuthenticationMethod>
 </LoginHandler>
+{% endhighlight %}
 
-### 4.3
+### 4.3 修改/usr/local/apache-tomcat-6.0.18/webapps/idp/WEB-INF/web.xml文件
 
-修改/usr/local/apache-tomcat-6.0.18/webapps/idp/WEB-INF/web.xml文件，增加如下代码：
+增加如下代码
 
 {% highlight xml %}
 <!-- For CAS client support -->
@@ -379,7 +778,7 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 		<init-param>
 			<param-name>casServerLoginUrl</param-name>
 			<param-value>
-				http://yj.zju.edu.cn:8080/cas/login
+				http://yangjie.info:8080/cas/login
 			</param-value>
 		</init-param>
 	</filter>
@@ -394,7 +793,7 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 		</filter-class>
 		<init-param>
 			<param-name>casServerUrlPrefix</param-name>
-			<param-value>http://yj.zju.edu.cn:8080/cas</param-value>
+			<param-value>http://yangjie.info:8080/cas</param-value>
 		</init-param>
 		<init-param>
 			<param-name>redirectAfterValidation</param-name>
@@ -441,4 +840,4 @@ urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
 
 ### 4.5 测试
 
-在浏览器输入地址https://ssoldap.zju.edu.cn:443/idp/Authn/RemoteUser，如果能转到cas的登录页面，并且输入用户名和密码后能跳转回shibboleth-idp的页面，则表示配置成功。
+在浏览器输入https://ssoldap.zju.edu.cn:443/idp/Authn/RemoteUser，如果能转到cas的登录页面，并且输入用户名和密码后能跳转回shibboleth-idp的页面，则表示配置成功。
