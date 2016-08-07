@@ -161,7 +161,7 @@ Locality Name (eg, city) [Newbury]:HZ
 Organization Name (eg, company) [My Company Ltd]:ZF
 Organizational Unit Name (eg, section) []:XX
 Common Name (eg, your name or your server's hostname) []:servername
-Email Address []:408172509@qq.com
+Email Address []:betteryangjie@qq.com
 Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:222222
@@ -200,7 +200,7 @@ Locality Name (eg, city) [Newbury]:HZ
 Organization Name (eg, company) [My Company Ltd]:ZF
 Organizational Unit Name (eg, section) []:XX
 Common Name (eg, your name or your server's hostname) []:servername
-Email Address []:408172509@qq.com
+Email Address []:betteryangjie@qq.com
 Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:222222
@@ -233,7 +233,7 @@ Locality Name (eg, city) [Newbury]:HZ
 Organization Name (eg, company) [My Company Ltd]:ZF
 Organizational Unit Name (eg, section) []:XX
 Common Name (eg, your name or your server's hostname) []:servername
-Email Address []:408172509@qq.com
+Email Address []:betteryangjie@qq.com
 ```
 
 备注：上面需要设置ca.key的保护密码，比如222222
@@ -262,7 +262,7 @@ Certificate Details:
             organizationName          = ZF
             organizationalUnitName    = XX
             commonName                = servername
-            emailAddress              = 408172509@qq.com
+            emailAddress              = betteryangjie@qq.com
         X509v3 extensions:
             X509v3 Basic Constraints:
                 CA:FALSE
@@ -300,7 +300,7 @@ Certificate Details:
             organizationName          = ZF
             organizationalUnitName    = XX
             commonName                = servername
-            emailAddress              = 408172509@qq.com
+            emailAddress              = betteryangjie@qq.com
         X509v3 extensions:
             X509v3 Basic Constraints:
                 CA:FALSE
@@ -366,8 +366,8 @@ C:\Users\yj>cd C:\apache-tomcat-6.0.18\conf
 
 ```Dos
 C:\apache-tomcat-6.0.18\conf>D:\Java\jdk1.6.0_22\bin\keytool -keystore truststore.jks -keypass 222222 -storepass 222222 -alias ca -import -trustcacerts -file ca.crt
-所有者:EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
-签发人:EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
+所有者:EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
+签发人:EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
 序列号:e3050811a431e590
 有效期: Thu Apr 03 15:42:10 CST 2014 至Sun Apr 02 15:42:10 CST 2017
 证书指纹:
@@ -394,7 +394,7 @@ KeyIdentifier [
 0000: 34 B8 DF 19 19 82 24 04   B0 6A DB 0B 14 F9 84 53  4.....$..j.....S
 0010: FD E6 AC 00                                        ....
 ]
-[EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN]
+[EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN]
 SerialNumber: [    e3050811 a431e590]
 ]
 信任这个认证？ [否]：  Y
@@ -411,8 +411,8 @@ Keystore 提供者： SUN
 别名名称： ca
 创建日期： 2014-4-3
 输入类型： trustedCertEntry
-所有者:EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
-签发人:EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
+所有者:EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
+签发人:EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
 序列号:e3050811a431e590
 有效期: Thu Apr 03 15:42:10 CST 2014 至Sun Apr 02 15:42:10 CST 2017
 证书指纹:
@@ -439,7 +439,7 @@ KeyIdentifier [
 0000: 34 B8 DF 19 19 82 24 04   B0 6A DB 0B 14 F9 84 53  4.....$..j.....S
 0010: FD E6 AC 00                                        ....
 ]
-[EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN]
+[EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN]
 SerialNumber: [    e3050811 a431e590]
 ]
 *******************************************
@@ -502,19 +502,19 @@ SerialNumber: [    e3050811 a431e590]
 ### 8.2 访问https://servername:8443/seecert.jsp，页面信息如下所示
 
 ```Bash
-SubjectDN: EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, ST=ZJ, C=CN
+SubjectDN: EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, ST=ZJ, C=CN
 ------------------certification detail--------------------
 [
 [
   Version: V3
-  Subject: EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, ST=ZJ, C=CN
+  Subject: EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, ST=ZJ, C=CN
   Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
   Key:  Sun RSA public key, 1024 bits
   modulus: 141449114454407038988786918853555701524900549122008150584947995419374485239561446908807989020106067409798055076644958924902632418014284643709924189550344080373755112316439867755824656686857330046832163496387135099687328331273050401321270638541241576419970877346433456905236838312941637366688847974396944760667
   public exponent: 65537
   Validity: [From: Thu Apr 03 20:04:35 CST 2014,
                To: Fri Apr 03 20:04:35 CST 2015]
-  Issuer: EMAILADDRESS=408172509@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
+  Issuer: EMAILADDRESS=betteryangjie@qq.com, CN=servername, OU=XX, O=ZF, L=HZ, ST=ZJ, C=CN
   SerialNumber: [    02]
 Certificate Extensions: 4
 [1]: ObjectId: 2.16.840.1.113730.1.13 Criticality=false

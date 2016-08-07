@@ -4,9 +4,7 @@ title: 一些JavaScript中有用的方法
 categories: [前端技术]
 tags: [JavaScript]
 ---
-本文总结一些在前端开发过程中，一些JavaScript中有用的方法。
-
->《秋浦歌》（唐 李白）  白发三千丈，缘愁似个长。不知明镜里，何处得秋霜。
+本文总结一些在前端开发过程中，一些JavaScript中有用的方法。比如对JSON的操作、编码、解码、判断输入法状态等。
 
 ## 1.JSON
 
