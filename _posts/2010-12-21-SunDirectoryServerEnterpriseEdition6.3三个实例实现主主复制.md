@@ -6,10 +6,17 @@ tags: [LDAP]
 ---
 Linux操作系统上已经安装了三个LDAP实例，分别是489、589、689端口。通过下面步骤可实现三个示例的主主复制。初始化方向是489->589，589->689。
 
-## 1.使用以下命令看是否已经配置了允许LDAP实例主主复制
+## 1.
+
+使用以下命令查看是否已经允许LDAP实例主主复制
 
 ```Bash
 [root@yangjie ~]# dsconf list-suffixes -p 489 -v
+```
+
+启用LDAP实例主主复制
+
+```Bash
 [root@yangjie ~]# dsconf enable-repl -h localhost -p 489 -d 4891 master dc=zju,dc=edu,dc=cn
 [root@yangjie ~]# dsconf list-suffixes -p 489 -v
 ```
@@ -60,7 +67,7 @@ Linux操作系统上已经安装了三个LDAP实例，分别是489、589、689�
 [root@yangjie ~]# dsconf show-repl-agmt-status -h localhost -p 489 dc=zju,dc=edu,dc=cn localhost:589
 ```
 
-下面的命令运行后，机器localhost上的589实例将被初始化跟localhost上489实例一样
+下面命令运行后，机器localhost上的589实例将被初始化跟localhost上489实例一样
 
 ```Bash
 [root@yangjie ~]# dsconf init-repl-dest -h localhost -p 489 dc=zju,dc=edu,dc=cn localhost:589
