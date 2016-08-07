@@ -20,15 +20,15 @@ Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web�
 
 将
 
-```
+{% highlight xml %}
 <param- value>file://$IDP_HOME$/conf/internal.xml; file://$IDP_HOME$/conf/service.xml;</param-value>
-```
+{% endhighlight %}
 
-改为
+修改为
 
-```
+{% highlight xml %}
 <param- value>file:///$IDP_HOME$/conf/internal.xml ; file:///$IDP_HOME$/conf/service.xml ;</param-value>
-```
+{% endhighlight %}
 
 若不修改，第二步启动tomcat时会报错 (IOException parsing XML document from URL)
 
@@ -43,18 +43,22 @@ Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web�
 ## 2.6 修改JAVA_HOME\jre\lib\security\java.security文件
 
 将
+
 security.provider.#=edu.internet2.middleware.shibboleth.DelegateToApplicationProvider
+
 加入security.provider最后一行(#是顺序的数字)，示例：
 
+<pre>
 security.provider.8=sun.security.smartcardio.SunPCSC
 security.provider.9=sun.security.mscapi.SunMSCAPI
 security.provider.10=edu.internet2.middleware.shibboleth.DelegateToApplicationProvider
+</pre>
  
 ## 2.7 修改TOMCAT_HOME\conf\server.xml
 
-将下列定义加入
+增加如下内容
 
-<pre>
+{% highlight xml %}
 <Connector protocol="org.apache.coyote.http11.Http11Protocol"
            port="8443"
            maxHttpHeaderSize="8192"
@@ -69,7 +73,7 @@ security.provider.10=edu.internet2.middleware.shibboleth.DelegateToApplicationPr
            truststoreFile="IDP_HOME/credentials/idp.jks"
            truststorePass="PASSWORD"
            truststoreAlgorithm="DelegateToApplication"/>
-</pre>
+{% endhighlight %}
 
 如果是tomcat5.5则删除protocol="org.apache.coyote.http11.Http11Protocol"，将IDP_HOME改为IDP的目录，PASSWORD是安装IDP时keystore的密码
 

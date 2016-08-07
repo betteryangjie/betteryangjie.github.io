@@ -7,37 +7,38 @@ tags: [Shibboleth,SSO]
 Shibboleth是一个针对SSO的开源项目，主要应用在高校之间的Web资源共享与访问控制，以及校园间的应用系统的用户身份联合认证。2006年 12月，由北京大学执行的CARSI项目即是在国内高校之间部署Shibboleth，隶属于国家863计划，目前已经有清华大学、北京邮电大学、中国电 子科技大学、华南理工大学等陆续加入，建立了CARSI-Fed（也称为CERNET-Fed），其目标是最终实现中国教育科研网内跨机构用户统一身份认 证、共享资源访问授权和审计系统。更多的详细信息可以参考：http://carsi.edu.cn/。
 
 本文介绍CAS安装、Shibboleth-idp（linux版本）安装、Shibboleth-sp安装以及配置CAS为Shibboleth-idp（linux版本）的验证源。在下面将按照步骤先后顺序进行介绍。
+
 在安装之前，让我们来了解下需要准备些什么。包括安装文件、机器、域名等。
 
 1、需要有三个独立的域名。比如本文中CAS的域名是yangjie.info，Shibboleth-idp的域名是idp.example.org, Shibboleth-sp的域名是sp.example.org。
 
-2、本文中，实际需要三台机器。其中CAS安装在windows-xp系统。Shibboleth-idp和Shibboleth-sp分别装在linux系统上。
+2、本文中，实际需要三台机器。其中CAS安装在WinXP系统。Shibboleth-idp和Shibboleth-sp分别装在linux系统上。
 
-3、在三台机器的系统都已装好的情况下，需要准备如下安装文件：
+3、在三台机器的操作系统都已装好的情况下，需要准备如下安装文件：
 
 CAS：
 
-Apache Tomcat（本文采用apache-tomcat-6.0.18）、
+(1)Apache Tomcat（apache-tomcat-6.0.18）
 
-JDK（本文采用jdk-6u10-rc2-bin-b32-windows-i586-p-12_sep_2008.exe）、
+(2)JDK（jdk-6u10-rc2-bin-b32-windows-i586-p-12_sep_2008.exe）
 
-cas-server（本文采用cas-server-3.4.2.1-release.zip）。
+(3)cas-server（cas-server-3.4.2.1-release.zip）
 
 Shibboleth-idp：
 
-Apache Tomcat（本文采用apache-tomcat-6.0.18）、
+(1)Apache Tomcat（apache-tomcat-6.0.18）
 
-JDK（本文采用jdk-6u14-linux-i586-rpm.bin）、
+(2)JDK（jdk-6u14-linux-i586-rpm.bin）
 
-shibboleth-identityprovider（shibboleth-identityprovider-2.1.5-bin.zip）、
+(3)shibboleth-identityprovider（shibboleth-identityprovider-2.1.5-bin.zip）
 
-cas-client（cas-client-3.1.10-release.tar.gz）。
+(4)cas-client（cas-client-3.1.10-release.tar.gz）
 
 Shibboleth-sp：
 
 省略...
 
->备注：如果需要使用Shibboleth-sp来测试，则Shibboleth-sp和Shibboleth-idp的两台机器时间要相同。
+备注：如果需要使用Shibboleth-sp来测试，则Shibboleth-sp和Shibboleth-idp的两台机器时间要相同。
 
 ## 1.CAS安装
 
@@ -117,11 +118,11 @@ export JAVA_HOME CLASSPATH PATH
 
 同时按住shift和冒号键，再按w和q，保存退出。
 
+下面使环境变量生效，并对所有用户的shell都生效。
+
 ```Bash
 [root@idp ~]# source /etc/profile
 ```
-
-上面一行代码将使环境变量生效，这样的设置将对所有用户的shell都生效。
 
 下面来验证一下变量设置是否生效
 
@@ -210,7 +211,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.5.7 测试
 
-在浏览器输入http://ssoldap.zju.edu.cn:8080/idp/profile/Status，如果能显示ok，则表示shibboleth-idp安装成功。
+在浏览器输入http://idp.example.org:8080/idp/profile/Status，如果能显示ok，则表示shibboleth-idp安装成功。
 
 ### 2.6 HTTPS验证配置（8443端口）
 
@@ -251,7 +252,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.6.4 测试
 
-在浏览器输入https://ssoldap.zju.edu.cn:8443/idp/profile/Status，如果能显示ok，则表示8443端口配置成功。
+在浏览器输入https://idp.example.org:8443/idp/profile/Status，如果能显示ok，则表示8443端口配置成功。
 
 ### 2.7 HTTPS验证配置（443端口）
 
@@ -317,7 +318,7 @@ Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode, sharing)
 
 #### 2.7.6 测试
 
-在浏览器输入https://ssoldap.zju.edu.cn:443/idp/profile/Status，如果能显示ok，则表示443端口配置成功。
+在浏览器输入https://idp.example.org:443/idp/profile/Status，如果能显示ok，则表示443端口配置成功。
 
 ## 3.Shibboleth-sp安装
 
@@ -490,13 +491,13 @@ Starting shibd:                                            [  OK  ]
 
 ##### (1)在浏览器输入https://sp.example.org/Shibboleth.sso/Metadata，将得到一个名为Metadata的文件，这个即是sp的metadata文件
 
-##### (2)将上一步得到的文件放到/shibboleth-idp/metadata文件夹下，并重命名为metadata-sp.xml
+##### (2)将上一步得到的文件放到/opt/shibboleth-idp/metadata文件夹下，并重命名为metadata-sp.xml
 
-##### (3)修改/shibboleth-idp/conf/relying-party.xml文件，在<metadata:MetadataProvider标签里面增加如下内容(注意id要唯一)
+##### (3)修改/opt/shibboleth-idp/conf/relying-party.xml文件，在<metadata:MetadataProvider标签里面增加如下内容(注意id要唯一)
 
 {% highlight xml %}
 <MetadataProvider id="SPMD2" xsi:type="ResourceBackedMetadataProvider" xmlns="urn:mace:shibboleth:2.0:metadata" >
-    <MetadataResource xsi:type="resource:FilesystemResource" file="/shibboleth-idp/metadata/metadata-sp.xml" />
+    <MetadataResource xsi:type="resource:FilesystemResource" file="/opt/shibboleth-idp/metadata/metadata-sp.xml" />
 </MetadataProvider>
 {% endhighlight %}
 
@@ -840,4 +841,4 @@ discovery  discovery.war  docs  examples  host-manager  manager  ROOT
 
 ### 4.5 测试
 
-在浏览器输入https://ssoldap.zju.edu.cn:443/idp/Authn/RemoteUser，如果能转到cas的登录页面，并且输入用户名和密码后能跳转回shibboleth-idp的页面，则表示配置成功。
+在浏览器输入https://idp.example.org:443/idp/Authn/RemoteUser，如果能转到cas的登录页面，并且输入用户名和密码后能跳转回shibboleth-idp的页面，则表示配置成功。
