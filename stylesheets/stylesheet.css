@@ -568,6 +568,9 @@ article .bdsharebuttonbox {
   color: #606c71;
   font-size: 12px;
 }
+.content .main p {
+  margin: 0;
+}
 .content ul li {
   margin: 0 0 20px 0;
 }
