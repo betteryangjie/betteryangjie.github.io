@@ -266,12 +266,12 @@ a {
   left: 0;
   bottom: 0;
   right: 0;
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#003973+0,e5e5be+100 */
-  background: #003973; /* Old browsers */
-  background: -moz-linear-gradient(left, #003973 0%, #e5e5be 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #003973 0%, #e5e5be 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #003973 0%, #e5e5be 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003973', endColorstr='#e5e5be',GradientType=1 ); /* IE6-9 */;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#80d2f0+0,e5e5be+100 */
+  background: #80d2f0; /* Old browsers */
+  background: -moz-linear-gradient(left, #80d2f0 0%, #e5e5be 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #80d2f0 0%, #e5e5be 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #80d2f0 0%, #e5e5be 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80d2f0', endColorstr='#e5e5be',GradientType=1 ); /* IE6-9 */;
 }
 .home-box {
   -webkit-user-select: none;
@@ -483,15 +483,13 @@ a {
 .aboutme .pay span {
   display: inline-block;
   vertical-align: middle;
-  width: 213px;
-  height: 223px;
-  border: 1px solid #ccc;
+  width: 226px;
+  height: 226px;
   margin-right: 40px;
-  padding: 2px 6px 20px;
   margin-bottom: 10px;
 }
 .aboutme .pay img {
-  height: 200px;
+  height: 226px;
   background: #eee;
   text-align: center;
 }
