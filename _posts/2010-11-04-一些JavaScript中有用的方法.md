@@ -30,6 +30,11 @@ var str = $.toJSON(obj);
 
 ```JavaScript
 var str = '{"name":"张三","age":"18"}';
+var obj = JSON.parse(str);
+```
+
+```JavaScript
+var str = '{"name":"张三","age":"18"}';
 var obj = $.parseJSON(str);
 ```
 
