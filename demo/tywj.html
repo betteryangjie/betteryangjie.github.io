@@ -3,12 +3,20 @@
     <head>
         <meta charset="utf-8">
         <style>
+            div{
+            	margin:0 0 0 0;
+                position: relative;
+            }
+            div span{
+                position: absolute;
+                top:20px;
+                left:20px;
+            }
         </style>
         <script type="text/javascript" src="http://cdn.bootcss.com/Chart.js/1.1.1/Chart.min.js"></script>
     </head>
     <body>
-        <div><canvas id='chart-area-01'/></div>
-        <div><span>月收入曲线图</span></div>
+        <div><span>月收入曲线图</span><canvas id='chart-area-01'/></div>
         <script>
         function showLine01() {
             try{
