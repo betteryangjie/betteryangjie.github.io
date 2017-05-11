@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            div{
+            	margin:0 0 50px 0;
+                position: relative;
+            }
+            div span{
+                position: absolute;
+                top:50%;
+                margin: -9px 0 0 0;
+            }
+            div canvas{
+                margin:0 0 0 100px;
+            }
+        </style>
+        <script type="text/javascript" src="http://cdn.bootcss.com/Chart.js/1.1.1/Chart.min.js"></script>
+    </head>
+    <body>
+        <div><span>月收入曲线图</span><canvas id='chart-area-01'/></div>
+        <script>
+        function showLine01() {
+            try{
+                let data = {
+                    labels : [],
+                    datasets : [
+                        {
+                            label: '排名',
+                            fillColor : 'rgba(42,57,72,0.04)',//x轴与曲线间的颜色
+                            strokeColor : 'rgba(42,57,72,1)',//小圆点之间连接线的颜色
+                            pointColor : 'rgba(255,255,255,1)',//小圆点内部的填充颜色
+                            pointStrokeColor : 'rgba(42,57,72,1)',//小圆点的边框颜色
+                            pointHighlightFill : 'rgba(178,214,130,1)',//hover小圆点内部的填充颜色
+                            pointHighlightStroke : 'rgba(42,57,72,1)',//hover小圆点的边框颜色
+                            data : []
+                        }
+                    ]
+
+                }
+                let options = {   
+                    //Boolean - If we show the scale above the chart data           
+                    /*scaleOverlay : false,*/
+                    
+                    //Boolean - If we want to override with a hard coded scale
+                    /*scaleOverride : false,*/
+                    
+                    //** Required if scaleOverride is true **
+                    //Number - The number of steps in a hard coded scale
+                    /*scaleSteps : null,*/
+                    //Number - The value jump in the hard coded scale
+                    /*scaleStepWidth : null,*/
+                    //Number - The scale starting value
+                    /*scaleStartValue : null,*/
+
+                    //x y轴线条颜色
+                    //String - Colour of the scale line 
+                    /*scaleLineColor : "rgba(0,0,0,.1)",*/
+                    
+                    //x y轴线条宽度
+                    //Number - Pixel width of the scale line    
+                    /*scaleLineWidth : 1,*/
+
+                    //是否显示y轴数字
+                    //Boolean - Whether to show labels on the scale 
+                    /*scaleShowLabels : true,*/
+                    
+                    //Interpolated JS string - can access value
+                    /*scaleLabel : "<%=value%>",*/
+                    
+                    //String - Scale label font declaration for the scale label
+                    /*scaleFontFamily : "'Arial'",*/
+                    
+                    //x y轴文字大小
+                    //Number - Scale label font size in pixels  
+                    /*scaleFontSize : 12,*/
+                    
+                    //x y轴文字是否加粗
+                    //String - Scale label font weight style    
+                    /*scaleFontStyle : "normal",*/
+                    
+                    //x y轴文字颜色
+                    //String - Scale label font colour  
+                    /*scaleFontColor : "#666",*/    
+                    
+                    //是否显示方格
+                    //Boolean - Whether grid lines are shown across the chart
+                    /*scaleShowGridLines : true,*/
+                    
+                    //方格的颜色
+                    //String - Colour of the grid lines
+                    /*scaleGridLineColor : "rgba(0,0,0,.05)",*/
+                    
+                    //方格的线条宽度
+                    //Number - Width of the grid lines
+                    /*scaleGridLineWidth : 1,*/ 
+
+                    //{true:圆滑曲线, false:折线}
+                    //Boolean - Whether the line is curved between points
+                    bezierCurve : false,
+
+                    //每个值是否显示为小圆点
+                    //Boolean - Whether to show a dot for each point
+                    /*pointDot : true,*/ 
+
+                    //每个小圆点的大小
+                    //Number - Radius of each point dot in pixels
+                    pointDotRadius : 6,
+
+                    //每个小圆点边框的大小
+                    //Number - Pixel width of point dot stroke
+                    pointDotStrokeWidth : 1.5,
+                    
+                    //是否显示小圆点之间连接线
+                    //Boolean - Whether to show a stroke for datasets
+                    /*datasetStroke : true,*/
+
+                    //小圆点之间连接线的宽度
+                    //Number - Pixel width of dataset stroke
+                    datasetStrokeWidth : 1,
+                    
+                    //是否填充x轴与曲线间的颜色
+                    //Boolean - Whether to fill the dataset with a colour
+                    /*datasetFill : true,*/
+                    
+                    //Boolean - Whether to animate the chart
+                    /*animation : true,*/
+
+                    //Number - Number of animation steps
+                    /*animationSteps : 60,*/
+                    
+                    //String - Animation easing effect
+                    /*animationEasing : "easeOutQuart",*/
+
+                    //Function - Fires when the animation is complete
+                    /*onAnimationComplete : null,*/
+
+                    //{true:跟随屏幕缩放,false:固定大小}
+                    responsive : true
+                }
+                data.labels = ['2016/01','2016/02','2016/03','2016/04','2016/05','2016/06','2016/07','2016/08','2016/09','2016/10','2016/11','2016/12','2017/01','2017/02','2017/03','2017/04','2017/05']
+                data.datasets[0].data = ['66016','3000','169073','80426','47527','132870','130076','171674','207658','368659','445060','354455','244032','216693','542214','399745','45820']
+                new Chart(document.getElementById('chart-area-01').getContext('2d')).Line(data, options);
+            }catch(e){
+                console.error(e);
+            }  
+        }
+        showLine01();
+        </script>
+    </body>
+</html>
