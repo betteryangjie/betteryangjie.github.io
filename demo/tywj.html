@@ -10,33 +10,45 @@
             div span{
                 position: absolute;
                 top:20px;
-                left:100px;
+                left:80px;
             }
         </style>
         <script type="text/javascript" src="http://cdn.bootcss.com/Chart.js/1.1.1/Chart.min.js"></script>
     </head>
     <body>
-        <div><span>月收入曲线图</span><canvas id='chart-area-01'/></div>
+        <div><span>月收入/支出曲线图</span><canvas id='chart-area-04'/></div>
         <script>
-        function showLine01() {
+        function showLine04() {
             try{
                 let data = {
                     labels : [],
                     datasets : [
                         {
-                            label: '排名',
-                            fillColor : 'rgba(42,57,72,0.04)',//x轴与曲线间的颜色
-                            strokeColor : 'rgba(42,57,72,1)',//小圆点之间连接线的颜色
-                            pointColor : 'rgba(255,255,255,1)',//小圆点内部的填充颜色
-                            pointStrokeColor : 'rgba(42,57,72,1)',//小圆点的边框颜色
-                            pointHighlightFill : 'rgba(178,214,130,1)',//hover小圆点内部的填充颜色
-                            pointHighlightStroke : 'rgba(42,57,72,1)',//hover小圆点的边框颜色
+                            label: '收入',
+                            fillColor : 'rgba(255,0,0,0.5)',
+                            strokeColor : 'rgba(0,0,0,0.5)',
+                            pointColor : 'rgba(0,0,0,0.5)',
+                            pointStrokeColor : 'rgba(255,255,255,1)',
+                            pointHighlightFill : 'rgba(255,255,255,1)',
+                            pointHighlightStroke : 'rgba(0,0,0,0.5)',
+                            data : []
+                        },
+                        {
+                            label: '支出',
+                            fillColor : 'rgba(0,255,0,0.5)',
+                            strokeColor : 'rgba(0,0,0,0.5)',
+                            pointColor : 'rgba(0,0,0,0.5)',
+                            pointStrokeColor : 'rgba(255,255,255,1)',
+                            pointHighlightFill : 'rgba(255,255,255,1)',
+                            pointHighlightStroke : 'rgba(0,0,0,0.5)',
                             data : []
                         }
                     ]
-
                 }
-                let options = {   
+                data.datasets[0].data = ['66016','3000','169073','80426','47527','132870','130076','171674','207658','368659','445060','354455','244032','216693','542214','399745','45820']
+                data.datasets[1].data = ['8254','109630','291470','90448','32123','124040','118905','137773','193754','361567','424507','375373','159000','380199','554562','504682','15686']
+                data.labels = ['2016/1','2016/2','2016/3','2016/4','2016/5','2016/6','2016/7','2016/8','2016/9','2016/10','2016/11','2016/12','2017/1','2017/2','2017/3','2017/4','2017/5']
+                let options = {
                     //Boolean - If we show the scale above the chart data           
                     /*scaleOverlay : false,*/
                     
@@ -50,7 +62,6 @@
                     /*scaleStepWidth : null,*/
                     //Number - The scale starting value
                     /*scaleStartValue : null,*/
-
                     //x y轴线条颜色
                     //String - Colour of the scale line 
                     /*scaleLineColor : "rgba(0,0,0,.1)",*/
@@ -58,7 +69,6 @@
                     //x y轴线条宽度
                     //Number - Pixel width of the scale line    
                     /*scaleLineWidth : 1,*/
-
                     //是否显示y轴数字
                     //Boolean - Whether to show labels on the scale 
                     /*scaleShowLabels : true,*/
@@ -92,30 +102,25 @@
                     //方格的线条宽度
                     //Number - Width of the grid lines
                     /*scaleGridLineWidth : 1,*/ 
-
                     //{true:圆滑曲线, false:折线}
                     //Boolean - Whether the line is curved between points
                     bezierCurve : false,
-
                     //每个值是否显示为小圆点
                     //Boolean - Whether to show a dot for each point
-                    /*pointDot : true,*/ 
-
+                    /*pointDot : false,*/
                     //每个小圆点的大小
                     //Number - Radius of each point dot in pixels
-                    pointDotRadius : 6,
-
+                    pointDotRadius : 3,
                     //每个小圆点边框的大小
                     //Number - Pixel width of point dot stroke
-                    pointDotStrokeWidth : 1.5,
+                    pointDotStrokeWidth : 1,
                     
                     //是否显示小圆点之间连接线
                     //Boolean - Whether to show a stroke for datasets
-                    /*datasetStroke : true,*/
-
+                    /*datasetStroke : false,*/
                     //小圆点之间连接线的宽度
                     //Number - Pixel width of dataset stroke
-                    datasetStrokeWidth : 1,
+                    datasetStrokeWidth : 2,
                     
                     //是否填充x轴与曲线间的颜色
                     //Boolean - Whether to fill the dataset with a colour
@@ -123,27 +128,28 @@
                     
                     //Boolean - Whether to animate the chart
                     /*animation : true,*/
-
                     //Number - Number of animation steps
                     /*animationSteps : 60,*/
                     
                     //String - Animation easing effect
                     /*animationEasing : "easeOutQuart",*/
-
                     //Function - Fires when the animation is complete
                     /*onAnimationComplete : null,*/
-
                     //{true:跟随屏幕缩放,false:固定大小}
-                    responsive : true
+                    responsive : false,
+                    multiTooltipTemplate : function(e){
+                        return e.datasetLabel + ':' + e.value
+                    },
+                    scaleLabel : function(e){
+                        return e.value
+                    }
                 }
-                data.labels = ['2016/1','2016/2','2016/3','2016/4','2016/5','2016/6','2016/7','2016/8','2016/9','2016/10','2016/11','2016/12','2017/1','2017/2','2017/3','2017/4','2017/5']
-                data.datasets[0].data = ['66016','3000','169073','80426','47527','132870','130076','171674','207658','368659','445060','354455','244032','216693','542214','399745','45820']
-                new Chart(document.getElementById('chart-area-01').getContext('2d')).Line(data, options);
+                new Chart(document.getElementById('chart-area-04').getContext('2d')).Line(data, options);
             }catch(e){
                 console.error(e);
-            }  
+            }
         }
-        showLine01();
+        showLine04();
         </script>
     </body>
 </html>
