@@ -138,10 +138,10 @@
                     //{true:跟随屏幕缩放,false:固定大小}
                     responsive : true,
                     multiTooltipTemplate : function(e){
-                        return e.datasetLabel + ':' + e.value
+                        return e.datasetLabel + ':' + e.value/10000 + '万';
                     },
                     scaleLabel : function(e){
-                        return e.value
+                        return e.value/10000 + '万';
                     }
                 }
                 new Chart(document.getElementById('chart-area-04').getContext('2d')).Line(data, options);
