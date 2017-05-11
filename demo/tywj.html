@@ -138,7 +138,7 @@
                     //{true:跟随屏幕缩放,false:固定大小}
                     responsive : true,
                     multiTooltipTemplate : function(e){
-                        return e.datasetLabel + ':' + e.value/10000 + '万';
+                        return e.datasetLabel + ':' + (e.value/10000).toFixed(1) + '万';
                     },
                     scaleLabel : function(e){
                         return e.value/10000 + '万';
