@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>文档的标题</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <!--
+      HTML <header>元素代表一组介绍性或导航辅助工具。 它可能包含一些标题元素，但也可能包含其他元素，如徽标，搜索表单等。
+    -->
+    <header>
+      <h1>Main Page Title</h1>
+      <img src="mdn-logo-sm.png" alt="MDN logo">
+    </header>
+
+    <!--
+      HTML <nav>元素表示链接到其他页面或页面中的部分的页面的一部分：具有导航链接的部分。
+    -->
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!--
+      HTML <article>元素表示文档，页面，应用程序或站点中的独立构成，该文档，页面，应用程序或站点旨在独立分发或重用（例如，以联合方式）。 示例包括：论坛帖子，杂志或报纸文章或博客条目。
+    -->
+    <article class="film_review">
+      <header>
+      <h2>Jurassic Park</h2>
+      </header>
+      <section class="main_review">
+      <p>Dinos were great!</p>
+      </section>
+      <section class="user_reviews">
+      <article class="user_review">
+        <p>Way too scary for me.</p>
+        <footer>
+        <p>
+          Posted on
+          <time datetime="2015-05-16 19:00">May 16</time>
+          by Lisa.
+        </p>
+        </footer>
+      </article>
+      <article class="user_review">
+        <p>I agree, dinos are my favorite.</p>
+        <footer>
+        <p>
+          Posted on
+          <time datetime="2015-05-17 19:00">May 17</time>
+          by Tom.
+        </p>
+        </footer>
+      </article>
+      </section>
+      <footer>
+      <p>
+        Posted on
+        <time datetime="2015-05-15 19:00">May 15</time>
+        by Staff.
+      </p>
+      </footer>
+    </article>
+
+    <!--
+      HTML <section>元素表示HTML文档中包含的功能的独立部分，通常使用标题，该标题没有更具体的语义元素来表示它。
+    -->
+    <section>
+      <h2>Heading</h2>
+      <img src="bird.jpg" alt="bird">
+    </section>
+
+    <!--
+      HTML <aside>元素表示文档的一部分，其内容与文档的主要内容切向相连（通常表示为侧栏）。
+    -->
+    <article>
+      <p>
+        The Disney movie <em>The Little Mermaid</em> was
+        first released to theatres in 1989.
+      </p>
+      <aside>
+        <p>
+          The movie earned $87 million during its initial release.
+        </p>
+      </aside>
+      <p>
+        More info about the movie...
+      </p>
+    </article>
+
+    <!--
+      HTML <footer>元素表示其最近的分段内容或分段根元素的页脚。 页脚通常包含有关该部分的作者，版权数据或相关文档的链接的信息。
+    -->
+    <footer>
+      Some copyright info or perhaps some author
+      info for an &lt;article&gt;?
+    </footer>
+
+    <!--
+      HTML <main>元素表示文档或应用程序的<body>的主要内容。 主要内容区域由与文档的中心主题或应用程序的中心功能直接相关或扩展的内容组成。
+    -->
+    <main>
+      <h1>Apples</h1>
+      <p>The apple is the pomaceous fruit of the apple tree.</p>
+      
+      <article>
+        <h2>Red Delicious</h2>
+        <p>These bright red apples are the most common found in many
+        supermarkets.</p>
+        <p>... </p>
+        <p>... </p>
+      </article>
+
+      <article>
+        <h2>Granny Smith</h2>
+        <p>These juicy, green apples make a great filling for
+        apple pies.</p>
+        <p>... </p>
+        <p>... </p>
+      </article>
+
+    </main>
+
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <!--
+      http://devdocs.io/html/element/form
+      HTML <form>元素表示一个文档部分，其中包含交互控件，用于向Web服务器提交信息。
+    -->
+    <!-- Simple form which will send a GET request -->
+    <form action="" method="get">
+      <label for="GET-name">Name:</label>
+      <input id="GET-name" type="text" name="name">
+      <input type="submit" value="Save">
+    </form>
+
+    <!-- Simple form which will send a POST request -->
+    <form action="" method="post">
+      <label for="POST-name">Name:</label>
+      <input id="POST-name" type="text" name="name">
+      <input type="submit" value="Save">
+    </form>
+
+    <!-- Form with fieldset, legend, and label -->
+    <form action="" method="post">
+      <fieldset>
+        <legend>Title</legend>
+        <input type="radio" name="radio" id="radio">
+        <label for="radio">Click me</label>
+      </fieldset>
+    </form>
+
+  </body>
+</html>

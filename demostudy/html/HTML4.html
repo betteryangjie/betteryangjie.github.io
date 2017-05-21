@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <!--
+    http://devdocs.io/html/element/head
+    HTML <head>元素提供有关文档的一般信息（元数据），包括其标题和其脚本和样式表的链接。
+  -->
+  <head>
+    <!--
+      http://devdocs.io/html/element/title
+      HTML <title>元素定义文档的标题，显示在浏览器的标题栏或页面的标签上。 它只能包含文本，任何包含的标签都将被忽略。
+    -->
+    <title>文档的标题</title>
+
+
+    <!--
+      http://devdocs.io/html/element/meta
+      HTML <meta>元素表示不能由其他HTML元相关元素（如<base>，<link>，<script>，<style>或<title>）表示的元数据。
+      https://www.webrexstudio.com/basic-html-meta-tags
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="5;url=https://developer.mozilla.org/zh-CN/"><!-- Redirect page after 5 seconds -->
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <meta name='keywords' content='your, tags'>
+    <meta name='description' content='150 words'>
+    <meta name='subject' content='your website's subject'>
+    <meta name='copyright' content='company name'>
+    <meta name='language' content='ES'>
+    <meta name='robots' content='index,follow'>
+    <meta name='revised' content='Sunday, July 18th, 2010, 5:15 pm'>
+    <meta name='abstract' content=''>
+    <meta name='topic' content=''>
+    <meta name='Classification' content='Business'>
+    <meta name='author' content='name, email@hotmail.com'>
+    <meta name='designer' content=''>
+    <meta name='reply-to' content='email@hotmail.com'>
+    <meta name='owner' content=''>
+    <meta name='url' content='http://www.websiteaddrress.com'>
+    <meta name='pagename' content='jQuery Tools, Tutorials and Resources - O'Reilly Media'>
+    <meta name='category' content=''>
+    <meta name='coverage' content='Worldwide'>
+    <meta name='distribution' content='Global'>
+    <meta name='rating' content='General'>
+    <meta name='revisit-after' content='7 days'>
+    <meta name='subtitle' content='This is my subtitle'>
+    <meta name='target' content='all'>
+    <meta name='HandheldFriendly' content='True'>
+    <meta name='MobileOptimized' content='320'>
+    <meta name='date' content='Sep. 27, 2010'>
+    <meta name='medium' content='blog'>
+    <meta name='syndication-source' content='https://mashable.com/2008/12/24/free-brand-monitoring-tools/'>
+    <meta name='original-source' content='https://mashable.com/2008/12/24/free-brand-monitoring-tools/'>
+    <meta name='verify-v1' content='dV1r/ZJJdDEI++fKJ6iDEl6o+TMNtSu0kv18ONeqM0I='>
+    <meta name='y_key' content='1e39c508e0d87750'>
+    <meta name='pageKey' content='guest-home'>
+    <!--
+      Charset: For the html5 default charset value is UTF-8 and the latest encoding is ASCII and later charset encoding is ISO-8859-1.
+      Viewport: The meta viewport tag is an indispensable tag (together with Media Queries) if you are building a responsive website. However, you can technically set viewport meta tag for non-responsive web design all the same.
+      Description: Describe what you want to share in 160 words.
+      Subject: The subject of your, topic for this blog subject is “meta tag”.
+      Copyright:Copyright text.
+      Language: Define website language.
+      Keywords: Use full keywords for this page in search
+      Robots:The robots meta tag use fro instructs all search engine not to show the page in search results. The value of the name attribute (robots) specifies that the directive applies to all crawlers. To address a specific crawler, replace the robots value of the name attribute with the name of the crawler that you are addressing. Specific crawlers are also known as user-agents (a crawler uses its user-agent to request a page.) Google’s standard web crawler has the user-agent name Googlebot.
+      Revised:The “meta revised tag” is used to tell Search Engine Bots (Google, Yahoo!, Bing, etc.) the Last Modified Date and Time of any Web page in which you have made certain changes.
+      Abstract:The meta tag abstract can be used to indicate in just a very short sentence what the webpage is about. So every webpage of your website gets its own abstract-tag.
+      Topic:Topic of your blog for this blog topic “basic meta tag”.
+      Classification:Web design.
+      author:Author name.
+      designer: Website or blog designer name.
+      reply-to:Email address for contact information.
+      owner: Website owner name.
+      url: Webpage url
+      Pagename: This text same as page title.
+      Category: Page category.
+      Coverage: Specify country and otherwise take as worldwide.
+      distribution: 1. Global – indicates that your webpage is intended for everyone,
+      2. Local – intended for local distribution of your document,
+      3. IU – Internal Use, not intended for public distribution.
+      Revisit-after:By using this so called revisit-after meta tag you can tell the spider to come back to your website and index it again.
+      Subtitle:Subtitle of that page.
+      HandheldFriendly:This tells your M-Business Sync Server that you have optimized your page for being viewed on a mobile device. Without it, tables, JavaScript and certain image tags will be dropped when the page is downloaded.
+      MobileOptimized: This use for defualt size for mobile view.
+      Date: Content publish date
+      Medium: Some of the sites primarily display videos that for content video and this page for medium blog
+      syndication-source: The tag will be used by both the site that syndicates its content, as well as the site that receives and publishes the syndicated content from another source.
+      original-source: The original-source meta tag can be used by publishers wanting to claim their article as the original version.
+      verify-v1: The verify-v1 option within your Meta Tags Module is a Google webmaster tools-specific meta tag used to verify ownership of a site in Google’s webmaster tools.
+      y_key: that’s used to verify a site with Yahoo Site Explorer – if you want to verify your site with them go to https://siteexplorer.search.yahoo.com/, add your site, and they’ll generate one of your very own
+      pageKey:
+    -->
+
+
+    <!--
+      http://devdocs.io/html/element/base
+      HTML <base>元素指定用于文档中包含的所有相关URL的基本URL。 文档中只能有一个<base>元素。
+    -->
+    <!--<base href="http://www.example.com/page.html">-->
+    <base target="_blank" href="http://www.example.com/page.html">
+
+
+    <!--
+      http://devdocs.io/html/element/link
+      HTML <link>元素指定当前文档和外部资源之间的关系。此元素的可能用途包括定义用于导航的关系框架。此元素最常用于链接到样式表。
+
+      1 包括一个样式表
+      要在页面中包含样式表，请使用以下语法:
+    -->
+    <link href="style.css" rel="stylesheet">
+    <!--
+      2 提供替代样式表
+      您还可以指定替代样式表。
+      用户可以从“视图”>“页面样式”菜单中选择要使用的样式表。 这为用户提供了查看页面多个版本的方法。
+    -->
+    <link href="default.css" rel="stylesheet" title="Default Style">
+    <link href="fancy.css" rel="alternate stylesheet" title="Fancy">
+    <link href="basic.css" rel="alternate stylesheet" title="Basic">
+    <!--
+      3 样式表加载事件
+      您可以通过观察装载事件来加载样式表何时触发; 同样，您可以通过观察错误事件来检测处理样式表时是否发生错误：
+    -->
+    <script>
+      function sheetLoaded() {
+        // 做一些有趣的事情 工作表已经装入
+      }
+      function sheetError() {
+        console.log("加载样式表时出错！");
+      }
+    </script>
+    <link rel="stylesheet" href="mystylesheet.css" onload="sheetLoaded()" onerror="sheetError()">
+    <!--
+      注意：一旦样式表和所有导入的内容已经加载和解析，并且样式开始应用于内容之前，加载事件就会触发。
+    -->
+
+
+    <!--
+      http://devdocs.io/html/element/style
+      HTML <style>元素包含文档或文档的一部分的样式信息。默认情况下，写入该元素的样式指令预计为CSS。
+    -->
+    <style type="text/css">
+      body {
+        color:red;
+      }
+    </style>
+
+
+    <!--
+      http://devdocs.io/html/element/script
+      HTML <script>元素用于嵌入或引用可执行脚本。
+    -->
+    <!-- HTML4 and (x)HTML -->
+    <script type="text/javascript" src="javascript.js"></script>
+    <!-- HTML5 -->
+    <script src="javascript.js"></script>
+
+  </head>
+  <body>
+    <!--
+      http://devdocs.io/html/element/noscript
+      如果页面上的脚本类型不受支持或脚本在浏览器中当前处于关闭状态，则HTML <noscript>元素定义要插入的一部分html。
+    -->
+    <noscript>
+      <!-- anchor linking to external file -->
+      <a href="https://www.mozilla.com/">External Link</a>
+    </noscript>
+
+  </body>
+</html>
