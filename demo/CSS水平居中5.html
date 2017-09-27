@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>margin和width实现水平居中</title>
+        <style type="text/css">
+            .pagination {
+              width: 607px;/* V */
+              margin-left: auto;/* V */
+              margin-right: auto;/* V */
+              display: flex;
+            }
+            .pagination ul {
+            }
+            .pagination li {
+              line-height: 25px;
+              display: inline;/* V */
+              float: left;/* V */
+            }
+            .pagination a {
+              display: block;
+              color: red;
+              padding: 0 10px;
+            }
+            ul,li{
+              margin:0;
+              padding:0;
+              list-style: none;
+            }
+/*
+示例中只显示了五页和向前向后共七个显项，但往往我们很多情况下是不知道会有多少个分页项显示出来，而且也无法确定每个分页选项的宽度是多少，也就无法确认容器的宽度。
+优点：简单易懂，浏览器兼容性强；
+缺点：扩展性差，无法自适应未知项情况。
+*/
+        </style>
+    </head>
+    <body>
+        <div>你好</div>
+        <div class="pagination">
+            <ul>
+                <li><a href="#">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">10</a></li>
+                <li><a href="#">11</a></li>
+                <li><a href="#">12</a></li>
+                <li><a href="#">13</a></li>
+                <li><a href="#">14</a></li>
+                <li><a href="#">15</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+        </div>
+        <div>世界</div>
+    </body>
+</html>
