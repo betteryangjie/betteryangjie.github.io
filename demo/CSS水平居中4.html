@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS3的fit-content实现水平居中方法</title>
+        <style type="text/css">
+            .pagination {
+              width: -moz-fit-content;/* V */
+              width:-webkit-fit-content;/* V */
+              width: fit-content;/* V */
+              margin-left: auto;/* V */
+              margin-right: auto;/* V */
+            }
+            .pagination ul {
+              display: inline-block;
+            }
+            .pagination li {
+              line-height: 25px;
+              float: left;/* V */
+            }
+            .pagination a {
+              display: block;
+              color: red;
+              padding: 0 10px;
+            }
+            ul,li{
+              margin:0;
+              padding:0;
+              list-style: none;
+            }
+/*
+优点：简单易懂，扩展性强;
+缺点：浏览器兼容性差。
+*/
+        </style>
+    </head>
+    <body>
+        <div>你好</div>
+        <div class="pagination">
+            <ul>
+                <li><a href="#">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">10</a></li>
+                <li><a href="#">11</a></li>
+                <li><a href="#">12</a></li>
+                <li><a href="#">13</a></li>
+                <li><a href="#">14</a></li>
+                <li><a href="#">15</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+        </div>
+        <div>世界</div>
+    </body>
+</html>
