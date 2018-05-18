@@ -1,0 +1,116 @@
+---
+layout: post
+title: Mac开启SFTP服务并配置密钥登录
+categories: [操作系统]
+tags: [Mac,SFTP]
+---
+本文介绍在Mac上开启SFTP服务并配置密钥登录的步骤。
+
+## 1.Mac环境
+
+```Bash
+$ more /System/Library/CoreServices/SystemVersion.plist 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>ProductBuildVersion</key>
+        <string>16G29</string>
+        <key>ProductCopyright</key>
+        <string>1983-2017 Apple Inc.</string>
+        <key>ProductName</key>
+        <string>Mac OS X</string>
+        <key>ProductUserVisibleVersion</key>
+        <string>10.12.6</string>
+        <key>ProductVersion</key>
+        <string>10.12.6</string>
+</dict>
+</plist>
+```
+
+## 2.配置步骤
+
+### 更改主目录权限
+```Bash
+sudo chmod 755 ~
+```
+必须是755
+
+### 启动FTP Server
+```Bash
+sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist
+```
+
+### 确认已经启动
+```Bash
+ftp localhost
+```
+
+### 启动SFTP Server
+打开 System Preferences -> sharing，勾上"Remote Login"
+
+### 测试sftp是否成功打开
+```Bash
+sftp localhost
+```
+
+### 启动sshd服务
+```Bash
+sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
+```
+
+### 查看sshd是否启动
+```Bash
+sudo launchctl list | grep ssh
+```
+如果看到下面的输出表示成功启动了：
+－－－－－－－－－－－－－－
+- 0 com.openssh.sshd
+
+### 生成密钥对
+```Bash
+ssh-keygen -b 1024 -t rsa
+```
+
+默认生成密钥和公钥的路径 
+~/.ssh/id_rsa 
+~/.ssh/id_rsa.pub
+
+### 添加公钥至#服务器
+```Bash
+touch ~/.ssh/authorized_keys 
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```
+
+### 修改SSH配置，使用密钥登录并禁用口令
+
+```
+cd /etc/ssh
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+```
+然后修改sshd_config文件
+```Bash
+# 禁用密码验证
+PasswordAuthentication no
+# 启用密钥验证
+PubkeyAuthentication yes
+# 指定公钥数据库文件
+AuthorizedKeysFile /Users/yangjie/.ssh/authorized_keys
+# 禁用
+ChallengeResponseAuthentication no
+# 禁用
+UsePAM no
+```
+
+### 重启sshd服务
+```Bash
+sudo launchctl unload -w /System/Library/LaunchDaemons/ssh.plist
+sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
+```
+
+## 3.参考资料
+Mac OS X 上启动 FTP/SFTP server，并设置 log level：http://ju.outofmemory.cn/entry/45532
+mac下启动ssh服务：https://www.cnblogs.com/liyuanhong/articles/6540106.html
+Mac sftp 设置使用公钥认证：http://blog.csdn.net/darling0825/article/details/70886521
+SSH 使用密钥登录并禁止口令登录实践：http://www.linuxidc.com/Linux/2015-07/119608.htm
+SSH 使用密钥登录并禁止口令登录：https://www.cnblogs.com/elesos/p/6266871.html
