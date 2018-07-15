@@ -598,6 +598,10 @@ article .bdsharebuttonbox {
 .right-arrow {
   padding: 0 4px;
 }
+#gitmentContainer {
+  max-width: 760px;
+  margin: 0 auto;
+}
 @media screen and (max-width: 481px) {
   .home-box {
     width: 310px;
@@ -611,6 +615,9 @@ article .bdsharebuttonbox {
     /*display: none;*/
     width: 100%;
     max-width: none;
+  }
+  #gitmentContainer {
+    padding: 0 10px;
   }
 }
 @media screen and (max-width: 361px) {
@@ -636,5 +643,8 @@ article .bdsharebuttonbox {
     /*display: none;*/
     width: 100%;
     max-width: none;
+  }
+  #gitmentContainer {
+    padding: 0 10px;
   }
 }
