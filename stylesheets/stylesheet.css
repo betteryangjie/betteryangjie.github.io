@@ -403,7 +403,7 @@ a {
 .container .blogList {
   /*width: 68%;*/
   float: left;
-  min-height: 410px;
+  /*min-height: 410px;*/
   max-width: 520px;
   margin: 0 10px 10px 0;
 }
