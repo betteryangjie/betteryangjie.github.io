@@ -1,9 +1,10 @@
-<div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://betteryangjie.github.io/gitment/style/default.css">
+<script src="https://betteryangjie.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     var gitment = new Gitment({
-        //id: '页面 ID', // 可选。默认为 location.href
+        id: '{{ page.id }}',
+        title: '{{ page.title }}',
         owner: 'betteryangjie',
         repo: 'gitment.comment',
         oauth: {
@@ -11,5 +12,5 @@
             client_secret: 'c20dac7c0f27d45d6a54235f95a273802a38a479',
         },
     })
-    gitment.render('container')
+    gitment.render('gitmentContainer')
 </script>
