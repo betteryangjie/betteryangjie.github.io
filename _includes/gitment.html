@@ -5,7 +5,7 @@
 <script src="https://billts.site/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: '{{ page.date }}',
+        id: '{{ page.date | date: "%Y-%m-%d" }}',
         title: '{{ page.title }}',
         owner: 'betteryangjie',
         repo: 'gitment.comment',
