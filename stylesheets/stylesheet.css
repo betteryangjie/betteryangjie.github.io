@@ -423,6 +423,11 @@ a {
 .container ul.demoList li{
   border: 1px dashed #ccc;
   padding: 10px;
+  width: 45%;
+  float: left;
+}
+.container ul.demoList li:nth-child(odd) {
+  margin-right: 10%;
 }
 .share_self {
   /*width: 30%;*/
