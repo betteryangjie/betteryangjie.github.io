@@ -403,7 +403,7 @@ a {
   /*width: 68%;*/
   float: left;
   min-height: 410px;
-  max-width: 512px;
+  max-width: 520px;
   margin: 0 10px 10px 0;
 }
 .container .blogList .title {
@@ -413,11 +413,11 @@ a {
 .container .category,.container .tag {
   border: 1px solid #ccc;
   padding: 15px;
-  margin: 0 10px 30px 0;
+  margin: 0 0 30px 10px;
   /*width: 30%;*/
   float: left;
-  min-width: 228px;
-  max-width: 228px;
+  min-width: 220px;
+  max-width: 220px;
 }
 .container ul.demoList li{
   border: 1px dashed #ccc;
@@ -425,7 +425,7 @@ a {
 }
 .share_self {
   /*width: 30%;*/
-  min-width: 228px;
+  min-width: 220px;
   margin: 0 0 0 0;
 }
 .container .category ul {
@@ -575,6 +575,9 @@ article .bdsharebuttonbox {
   text-align: right;
   color: #999;
   font-size: 13px;
+}
+.content {
+  display: inline-block;
 }
 .content .main {
   color: #606c71;
