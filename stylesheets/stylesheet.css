@@ -388,7 +388,16 @@ a {
 .container .header {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 20px;
+  position: relative;
+  height: 80px;
+  line-height: 80px;
+  padding-left: 90px;
+}
+.container .header img {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 0;
 }
 .container .blogList {
   /*width: 68%;*/
