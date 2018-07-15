@@ -398,7 +398,7 @@ a {
   margin: 0 10px 10px 0;
 }
 .container .blogList .title {
-  font-size: 24px;
+  font-size: 12px;
   font-weight: bold;
 }
 .container .category,.container .tag {
@@ -576,6 +576,9 @@ article .bdsharebuttonbox {
 }
 .content ul li {
   margin: 0 0 20px 0;
+}
+.right-arrow {
+  padding: 0 4px;
 }
 @media screen and (max-width: 481px) {
   .home-box {
