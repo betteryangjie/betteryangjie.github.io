@@ -12,7 +12,7 @@ title: yangjie的Blog
         <div class="main">
             {{ post.content | truncate:80 }}
             {% if post.content.size > 80 %}
-                <span />
+                <a href="{{ site.baseurl }}{{ post.url }}">阅读更多</a>
             {% endif %}
         </div>
         <div style="display:none;" name="ptct">{{ post.content }}</div>
