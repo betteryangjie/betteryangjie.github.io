@@ -11,9 +11,6 @@ title: yangjie的Blog
         </div>
         <div class="main">
             {{ post.content | truncate:80 }}
-            {% if post.content.size > 80 %}
-                <a href="{{ site.baseurl }}{{ post.url }}">阅读更多</a>
-            {% endif %}
         </div>
         <div style="display:none;" name="ptct">{{ post.content }}</div>
         <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
