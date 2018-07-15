@@ -23,21 +23,14 @@ $(".catName").html("分类：" + cat);
 var posts = data[cat];
 for(var i=0;i<posts.length;i++) {
   var post = posts[i];
+  var date = $("<span class='date' />");
+  date.html(post.date);
   var title = $("<div class='title' />");
   var a = $("<a />");
   a.attr("href", post.url);
   a.html(post.title);
+  title.append(date);
   title.append(a);
-  var main = $("<div class='main' />");
-  main.html(decodeURI(post.main));
-  if(post.more) {
-    var a = $("<a />");
-    a.attr("href",  post.url);
-    a.html("阅读更多");
-    main.find("p:first").append(a);
-  }
-  var date = $("<span class='date' />");
-  date.html(post.date);
   var duoshuo = $("<span/>");
   var duoshuo_b = $("<b/>");
   duoshuo_b.attr("class","ds-thread-count disqus-comment-count");
@@ -46,8 +39,6 @@ for(var i=0;i<posts.length;i++) {
   duoshuo.append(duoshuo_b);
   var li = $("<li />");
   li.append(title);
-  li.append(main);
-  li.append(date);
   li.append(duoshuo);
   $(".blogList").append(li);
 }
