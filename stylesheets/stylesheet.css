@@ -584,6 +584,7 @@ article .bdsharebuttonbox {
 }
 .content {
   display: inline-block;
+  max-width: 760px;
 }
 .content .main {
   color: #606c71;
