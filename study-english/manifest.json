@@ -1,9 +1,8 @@
 {
-  "app.css": "css/app.23e3a8c118b177097896.css",
-  "app.js": "js/app.23e3a8c118b177097896.js",
-  "app.js.map": "js/app.23e3a8c118b177097896.js.map",
-  "vendors~app.css": "css/vendors~app.ce5d42701c1765135de2.css",
-  "vendors~app.js": "js/vendors~app.ce5d42701c1765135de2.js",
-  "vendors~app.js.map": "js/vendors~app.ce5d42701c1765135de2.js.map",
+  "app.css": "css/app.de28846860598c49c54f.css",
+  "app.js": "js/app.de28846860598c49c54f.js",
+  "vendors~app.css": "css/vendors~app.ae53dc2efe1684a9a255.css",
+  "vendors~app.js": "js/vendors~app.ae53dc2efe1684a9a255.js",
+  "favicon.ico": "favicon.ico",
   "index.html": "index.html"
 }
