@@ -1,8 +1,9 @@
 {
-  "app.css": "css/app.44bcd8118ea683d119ba.css",
-  "app.js": "js/app.44bcd8118ea683d119ba.js",
-  "vendors~app.css": "css/vendors~app.4812073b8c82f68571c5.css",
-  "vendors~app.js": "js/vendors~app.4812073b8c82f68571c5.js",
+  "app.css": "css/app.42a0ed16bee3e7e99c51.css",
+  "app.js": "js/app.42a0ed16bee3e7e99c51.js",
+  "vendors~app.css": "css/vendors~app.8f3aeaccf452d88d0b9d.css",
+  "vendors~app.js": "js/vendors~app.8f3aeaccf452d88d0b9d.js",
   "favicon.ico": "favicon.ico",
-  "index.html": "index.html"
+  "index.html": "index.html",
+  "js/vendors~app.8f3aeaccf452d88d0b9d.js.LICENSE.txt": "js/vendors~app.8f3aeaccf452d88d0b9d.js.LICENSE.txt"
 }
