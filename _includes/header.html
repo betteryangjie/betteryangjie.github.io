@@ -17,7 +17,7 @@
         html = '<font>学习示例</font>';
     } else if(p.indexOf('/about') == 0) {//关于我
     	html = '<font>关于我</font>';
-    } else {//文章详情
+    } else if(p.indexOf('/blog') == 0) {//文章详情
     	html = '<a href="/blog/">博客</a><font> » </font><font>文章详情</font>';
     }
     crumb.innerHTML = html;

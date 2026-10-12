@@ -1,0 +1,40 @@
+---
+layout: default
+title: yangjie的Blog
+---
+
+<div class="aboutme" id="redirectTip" style="display: none">
+  <div>
+    <p>即将跳转至</p>
+  </div>
+  <strong class="title" id="siteName"></strong>
+  <div>
+    <p>请稍等</p>
+  </div>
+</div>
+<script type="text/javascript">
+  function getUrlParams(url) {
+    const params = {}
+    if (!url) return params
+    const queryStr = url.split('#')[0].split('?')[1]
+    if (!queryStr) return params
+    const pairs = queryStr.split('&')
+    for (const pair of pairs) {
+      const [key, val] = pair.split('=')
+      if (key !== undefined) {
+        params[decodeURIComponent(key)] = val === undefined ? '' : decodeURIComponent(val)
+      }
+    }
+    return params
+  }
+  const urlParams = getUrlParams(window.location.href)
+  const { siteName = '', siteUrl = '' } = urlParams
+  document.querySelector('#siteName').innerHTML = siteName
+  if (siteUrl) {
+    document.querySelector('#redirectTip').style.display = 'block'
+    setTimeout(() => {
+      window.location.href = siteUrl
+    }, 2000)
+  }
+  // https://betteryangjie.github.io/about/?siteUrl=https%3A%2F%2Fbetteryangjie.cn%2F%23%2Ftoutouma%3Fanchor%3Dabout-safe&siteName=%E6%8A%95%E6%8A%95%E9%A9%AC
+</script>
